@@ -37,35 +37,7 @@ class App extends React.Component {
   }
 
   render() {
-    this.fetchUser()
-    if (this.state.loggedInUser) {
-      return (
-        <React.Fragment>
-          <Redirect to="/home"></Redirect>
-
-          <div className="App">
-            <header className="App-header">
-              <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-              <Contents></Contents>
-            </header>
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Redirect to="/login"></Redirect>
-
-          <div className="App">
-            <header className="App-header">
-              <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-              <Switch>
-                <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
-                <Route exact path='/login' render={() => <Login getUser={this.getUser} />} />
-              </Switch>
-            </header>
-          </div>
-        </React.Fragment>
+    
       );
     }
   }
