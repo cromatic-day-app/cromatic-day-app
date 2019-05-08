@@ -83,15 +83,9 @@ app.use(session({
 }))
 app.use(flash());
 require('./passport')(app);
-    
-const index = require('./routes/index');
-app.use('/api', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
-    
-const uploadRoutes = require('./routes/file-upload')
-app.use('/api', uploadRoutes);
 
 app.use((req, res) => { res.sendFile(`${__dirname}/public/index.html`)})
 

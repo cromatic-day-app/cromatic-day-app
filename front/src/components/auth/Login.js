@@ -1,8 +1,8 @@
 import React from 'react';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,13 +17,14 @@ class Signup extends React.Component {
     const username = this.state.username;
     const password = this.state.password;
 
-    this.service.signup(username, password)
+    this.service.login(username, password)
       .then(response => {
         this.setState({
-          username: "",
-          password: "",
+          username: username,
+          password: password,
+          error: false
         });
-        this.props.getUser(response.user)
+        this.props.getUser(response)
       })
       .catch(error => {
         this.setState({
@@ -36,28 +37,25 @@ class Signup extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
     return (
       <div>
-        <h3>Welcome!, create your account next:</h3>
-
+        <h3>Please, login to our site</h3>
         <form onSubmit={(e) => this.handleFormSubmit(e)}>
           <fieldset>
             <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
+            <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
           </fieldset>
 
           <fieldset>
             <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
+            <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
           </fieldset>
 
-          <input type="submit" value="Sign up" />
+          <input type="submit" value="Login" />
         </form>
 
         <h1>{this.state.error ? 'Error' : ''}</h1>
@@ -66,4 +64,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default Login;
