@@ -49,7 +49,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 var whitelist = [
   'http://localhost:3000',
-  'http://cromatic-day.herokuapp.com'
+  'https://cromatic-day.herokuapp.com'
 ];
 var corsOptions = {
   origin: function (origin, callback) {
