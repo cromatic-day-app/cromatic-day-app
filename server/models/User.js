@@ -8,10 +8,10 @@ const userSchema = new Schema({
         type: String,
         default: "/images/default/LogoVdark.png"
     },
-    // booked: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Artwork"
-    // }]
+    booked: [{
+        type: Schema.Types.ObjectId,
+        ref: "Artwork"
+    }]
 }, {
     timestamps: {
         createdAt: 'created_at',
