@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Home extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.props.userInSession)
+    if (!this.props.userInSession) return <Redirect to={"/login"}/>
     return (
       <React.Fragment>
         <h1>Home page</h1>

@@ -57,7 +57,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <Switch>
-            <Home userInSession={this.state.loggedInUser} exact path='/home' component={Home} logout={() => this.logout()}/>
+            {/* <Home userInSession={this.state.loggedInUser} exact path='/home' component={Home} logout={() => this.logout()}/> */}
           </Switch>
           {/* <footer>Aquí va nuestro footer</footer> */}
           {/* <div className="App">
@@ -78,6 +78,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
               <Route exact path='/login' render={() => <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
+              <Route exact path='/home' render={() => <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
             </Switch>
             {/* <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={(obj) => this.getUser(obj)} />} />
