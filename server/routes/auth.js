@@ -69,17 +69,17 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/currentuser', (req,res,next) => {
-  if(req.user){
-    res.status(200).json(req.user);
-  }else{
-    next(new Error('Not logged in'))
+router.get('/currentuser', (req, res, next) => {
+  if (req.isAuthenticated()) {
+      res.status(200).json(req.user);
+      return;
   }
-})
+  res.status(403).json({ message: 'Unauthorized' });
+});
 
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res, next) => {
   req.logout();
-  res.status(200).json({ message: 'logged out' })
+  res.status(200).json({ message: 'Log out success!' });
 });
 
 router.use((err, req, res, next) => {
