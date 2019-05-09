@@ -1,13 +1,14 @@
 import React from 'react';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      saved: false
     };
     this.service = new AuthService();
   }
@@ -18,12 +19,13 @@ class Signup extends React.Component {
     const password = this.state.password;
 
     this.service.signup(username, password)
-      .then(response => {
+      .then(() => {
         this.setState({
           username: "",
           password: "",
+          saved: true
         });
-        this.props.getUser(response.user)
+        // this.props.getUser(response.user)
       })
       .catch(error => {
         this.setState({
@@ -42,6 +44,7 @@ class Signup extends React.Component {
   }
 
   render() {
+    if(this.state.saved) return <Redirect to={"/login"}/>
     return (
       <div>
         <h3>Welcome!, create your account next:</h3>

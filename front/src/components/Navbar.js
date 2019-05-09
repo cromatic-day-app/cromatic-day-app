@@ -12,7 +12,7 @@ class Navbar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({...this.state, loggedInUser: nextProps["userInSession"]});
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
   }
 
 
@@ -21,14 +21,14 @@ class Navbar extends React.Component {
   }
 
   render() {
-  
+
     if (this.props.userInSession) {
       return (
         <nav className="nav-style">
           <ul>
             <li>Welcome, {this.props.userInSession.username}</li>
             <li>
-              <Link to='/'>
+              <Link to='/home'>
                 <button onClick={() => this.handleLogout()}>Logout</button>
               </Link>
             </li>

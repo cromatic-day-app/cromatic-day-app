@@ -7,7 +7,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      logged: false
     };
     this.service = new AuthService();
   }
@@ -22,6 +23,7 @@ class Login extends React.Component {
         this.setState({
           username: username,
           password: password,
+          logged: true,
           error: false
         });
         this.props.getUser(response)
@@ -41,6 +43,7 @@ class Login extends React.Component {
   }
 
   render() {
+    if(this.state.logged) return <Redirect to={"/home"}/>
     return (
       <div>
         <h3>Please, login to our site</h3>

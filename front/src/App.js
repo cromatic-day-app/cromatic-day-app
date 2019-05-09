@@ -33,39 +33,42 @@ class App extends React.Component {
       })
   }
 
-  fetchUser(){
-    if( this.state.loggedInUser === null ){
+  fetchUser() {
+    if (this.state.loggedInUser === null) {
       this.service.loggedin()
-      .then(response =>{
-        this.setState({
-          loggedInUser:  response
-        }) 
-      })
-      .catch( err =>{
-        this.setState({
-          loggedInUser:  false
-        }) 
-      })
+        .then(response => {
+          this.setState({
+            loggedInUser: response
+          })
+        })
+        .catch(err => {
+          this.setState({
+            loggedInUser: false
+          })
+        })
     }
   }
 
 
   render() {
     //this.fetchUser()
-    console.log(this.state.loggedInUser);
+    //console.log(this.state.loggedInUser);
     if (this.state.loggedInUser) {
       return (
         <React.Fragment>
-          <div className="App">
+          <Switch>
+            <Home userInSession={this.state.loggedInUser} exact path='/home' component={Home} logout={() => this.logout()}/>
+          </Switch>
+          {/* <footer>Aquí va nuestro footer</footer> */}
+          {/* <div className="App">
             <header className="App-header">
               <Navbar userInSession={this.state.loggedInUser} logout={() => this.logout()} />
               <h1>You are in!!!</h1>
             </header>
-          </div>
+          </div> */}
         </React.Fragment>
       );
     }
-
     return (
       <React.Fragment>
         {/* <Redirect to="/login"></Redirect> */}
@@ -73,9 +76,14 @@ class App extends React.Component {
         <div className="App">
           <header className="App-header">
             <Switch>
+              <Route exact path='/signup' render={() => <Signup getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
+              <Route exact path='/login' render={() => <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
+            </Switch>
+            {/* <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={(obj) => this.getUser(obj)} />} />
               <Route exact path='/login' render={() => <Login getUser={(obj) => this.getUser(obj)} />} />
-            </Switch>
+              <Route exact path='/home' render={() => <Home getUser={(obj) => this.getUser(obj)} />} />
+            </Switch> */}
           </header>
         </div>
       </React.Fragment>
