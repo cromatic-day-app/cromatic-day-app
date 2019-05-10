@@ -1,30 +1,37 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedInUser: null
+      loggedInUser: null,
+      // redirect: false,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
-  }
+  // componentDidUpdate(){
+  //   if(!this.props.userInSession){
+  //     this.setState({
+  //       ...this.state,
+  //       redirect: true,
+  //     })
+  //   }
+  // }
 
-  handleLogout = () => {
-    this.props.logout()
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] });
+  // }
+
 
   render() {
-    if (!this.props.userInSession) return <Redirect to={"/login"}/>
+    //if (!this.props.userInSession) return <Redirect to={"/login"}/>
     return (
       <React.Fragment>
+        {/* {
+          this.state.redirect ? <Redirect to="/login"/> : null
+        } */}
         <h1>Home page</h1>
-        <Link to='/'>
-          <button onClick={() => this.handleLogout()}>Logout</button>
-        </Link>
+        
       </React.Fragment>
     )
   }

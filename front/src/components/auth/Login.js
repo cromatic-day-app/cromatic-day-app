@@ -43,7 +43,7 @@ class Login extends React.Component {
   }
 
   render() {
-    if(this.state.logged) return <Redirect to={"/home"}/>
+    // if(this.state.logged) return <Redirect to={"/home"}/>
     return (
       <div>
         <h3>Please, login to our site</h3>
