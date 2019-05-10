@@ -1,12 +1,14 @@
 import React from 'react';
-
 import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 import Signup from './components/auth/Signup';
-import Navbar from './components/Navbar';
 import Login from './components/auth/Login';
 import Home from './components/Home';
+import Events from './components/Events';
+import ArtworkDetail from './components/ArtworkDetail';
+import Profile from './components/Profile';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +26,6 @@ class App extends React.Component {
   }
 
   logout = () => {
-    // console.log("logout")
     this.service.logout()
       .then(() => {
         this.setState({
@@ -49,117 +50,41 @@ class App extends React.Component {
     }
   }
 
-
   render() {
-    //this.fetchUser()
-    //console.log(this.state.loggedInUser);
-    if (this.state.loggedInUser) {
-      return (
-        <React.Fragment>
-          <Switch>
-            {/* <Home userInSession={this.state.loggedInUser} exact path='/home' component={Home} logout={() => this.logout()}/> */}
-          </Switch>
-          {/* <footer>Aquí va nuestro footer</footer> */}
-          {/* <div className="App">
-            <header className="App-header">
-              <Navbar userInSession={this.state.loggedInUser} logout={() => this.logout()} />
-              <h1>You are in!!!</h1>
-            </header>
-          </div> */}
-        </React.Fragment>
-      );
-    }
     return (
       <React.Fragment>
-        {/* <Redirect to="/login"></Redirect> */}
+        <Switch>
+          <Route exact path='/' component={Home} />
 
-        <div className="App">
-          <header className="App-header">
-            <Switch>
-              <Route exact path='/signup' render={() => <Signup getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
-              <Route exact path='/login' render={() => <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
-              <Route exact path='/home' render={() => <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />} />
-            </Switch>
-            {/* <Switch>
-              <Route exact path='/signup' render={() => <Signup getUser={(obj) => this.getUser(obj)} />} />
-              <Route exact path='/login' render={() => <Login getUser={(obj) => this.getUser(obj)} />} />
-              <Route exact path='/home' render={() => <Home getUser={(obj) => this.getUser(obj)} />} />
-            </Switch> */}
-          </header>
-        </div>
+          <Route exact path='/signup' render={() =>
+            this.state.loggedInUser ? <Redirect to={"/events"} /> :
+              <Signup />} />
+
+          <Route exact path='/login' render={() =>
+            this.state.loggedInUser ? <Redirect to={"/events"} /> :
+              <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />}/>} />
+
+          <Route exact path='/events' render={() =>
+            this.state.loggedInUser ? <Events logout={this.logout} /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/events/:genre' render={() =>
+            this.state.loggedInUser ? <Events /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/events/:genre/:artworkId' render={() =>
+            this.state.loggedInUser ? <ArtworkDetail /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/profile' render={() =>
+            this.state.loggedInUser ? <Profile /> :
+              <Redirect to={'/login'} />} />
+          
+        </Switch>
       </React.Fragment>
     );
   }
-
-
-  // render() {
-  //   this.fetchUser()
-
-  //   if (this.state.loggedInUser) {
-  //     return (
-  //       <React.Fragment>
-  //         {/* <Redirect to="/home"></Redirect> */}
-
-  //         <div className="App">
-  //           <header className="App-header">
-  //             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-  //             <h1>You are in!!!</h1>
-  //           </header>
-  //         </div>
-  //       </React.Fragment>
-  //     );
-  //   } else {
-  //     return (
-  //       <React.Fragment>
-  //         {/* <Redirect to="/login"></Redirect> */}
-
-  //         <div className="App">
-  //           <header className="App-header">
-  //             <h1>NO ESTÁS LOGUEADO</h1>
-  //             <Switch>
-  //               <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
-  //               <Route exact path='/login' render={() => <Login getUser={this.getUser} />} />
-  //             </Switch>
-  //           </header>
-  //         </div>
-  //       </React.Fragment>
-  //     );
-  //   }
-  // }
-
-
 }
 
 export default App;
 
-// this.fetchUser()
-// console.log(this.state.loggedInUser, "login")
-// if (this.state.loggedInUser) {
-//   return (
-//     <React.Fragment>
-//       {/* <Redirect to="/"></Redirect> */}
-//       <div className="App">
-//         <header className="App-header">
-//           <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-//         </header>
-//       </div>
-//     </React.Fragment>
-//   );
-// } else {
-//   return (
-//     <React.Fragment>
-//       {/* <Redirect to="/login"></Redirect> */}
-//       <div className="App">
-//         <header className="App-header">
-//           <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-//           <Switch>
-//             <Route exact path='/signup' render={() => <Signup getUser={this.getUser} />} />
-//             <Route exact path='/login' render={() => <Login getUser={this.getUser} />} />
-//             <Route exact path='/home' component={Home}/>
-//           </Switch>
-//         </header>
-//       </div>
-//     </React.Fragment>
-//   );
-// }
-// }
