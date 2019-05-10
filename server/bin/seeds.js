@@ -43,7 +43,7 @@ genresArray.forEach(genre => {
               artistDisplayName: artistDisplayName,
               price: 10,
               date: randomDate(new Date(), new Date(2019, 4, 30)),
-              tag: genre
+              genre: genre
             });
             newArtwork
               .save()

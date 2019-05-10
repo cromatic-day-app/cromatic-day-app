@@ -6,9 +6,8 @@ const artworkSchema = new Schema({
     primaryImageSmall: String,
     artistDisplayName: String,
     price: Number,
-<<<<<<< HEAD
     date: Date,
-    tag: String,
+    genre: String,
     // location: {
     //     "type": "Point",
     //     "coordinates": [
@@ -16,10 +15,7 @@ const artworkSchema = new Schema({
     //         randomFloat(41.390205, 41.690205),
     //     ]
     // }
-=======
-    date: String,
-    tag: String
->>>>>>> c6884c225c0bf227a248fb7f3fdc4855e8c768b2
+
 });
 
 const Artwork = mongoose.model("Artwork", artworkSchema);
