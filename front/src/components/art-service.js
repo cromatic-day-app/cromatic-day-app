@@ -9,13 +9,6 @@ class ArtService {
         this.service = service;
     }
 
-    signup = (username, password) => {
-        return this.service
-            .get("/signup", { username, password })
-            .then(response => response.data)
-            .catch(err => console.log(err));
-    };
-
     allGenres = () => {
         return this.service
             .get("/allGenres")

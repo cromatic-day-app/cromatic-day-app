@@ -41,7 +41,7 @@ genresArray.forEach(genre => {
               title: title,
               primaryImageSmall: primaryImageSmall,
               artistDisplayName: artistDisplayName,
-              price: 10,
+              price: Math.floor((Math.random() * (50-30))+30),
               date: randomDate(new Date(), new Date(2019, 4, 30)),
               genre: genre
             });
