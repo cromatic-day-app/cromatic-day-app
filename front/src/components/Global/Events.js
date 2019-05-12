@@ -22,7 +22,3 @@ class Events extends React.Component {
 }
 
 export default Events;
-
-{/* <Link to={`/${picture.genre}`}>
-  <h2>{picture.genre}</h2>
-</Link> */}
