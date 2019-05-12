@@ -11,6 +11,8 @@ router.get('/allGenres', (req, res, next) => {
 
 router.get('/:genre', (req, res, next) => {
   let genre = req.params.genre
+  console.log(genre, "art - backend")
+
   Artwork
     .find({ genre: genre })
     .then(genreArtworks => res.json(genreArtworks))
