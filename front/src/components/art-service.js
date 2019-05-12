@@ -17,9 +17,10 @@ class ArtService {
     };
 
     allArtworks = (genre) => {
+        console.log(genre, "service")
         return this.service
             .get(`/${genre}`)
-            .then(response => response.data)
+            .then(response => console.log(response.data))
             .catch(err => console.log(err));
     };
 

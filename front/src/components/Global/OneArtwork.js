@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Card from '../Partials/Card';
 import MainNav from '../Partials/MainNav';
 
