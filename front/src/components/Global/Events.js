@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtService from '../art-service';
+import MainNav from '../Partials/MainNav';
 
 class Events extends React.Component {
   constructor(props) {
@@ -68,10 +69,12 @@ class Events extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>LANDSCAPES from Events</h1>
+        <MainNav user={this.props.user}></MainNav>
         <Link to='/'>
           <button onClick={this.handleLogout}>Logout</button>
         </Link>
+        <h1>LANDSCAPES from Events</h1>
+
         {
           this.showGenres(this.state.allGenres).map((picture, idx) => {
             return (

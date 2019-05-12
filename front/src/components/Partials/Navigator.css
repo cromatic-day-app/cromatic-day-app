@@ -1,0 +1,10 @@
+.box-navigator {
+    width: auto;
+    margin-left: 25rem;
+    margin-right: 25rem;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+}

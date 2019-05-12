@@ -1,0 +1,20 @@
+.test1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.test2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}

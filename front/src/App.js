@@ -68,7 +68,7 @@ class App extends React.Component {
               <Login getUser={this.getUser} userInSession={this.state.loggedInUser} />}/>} />
 
           <Route exact path='/events' render={() =>
-            this.state.loggedInUser ? <Events logout={this.logout} /> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} logout={this.logout} /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre' render={() =>
