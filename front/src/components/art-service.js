@@ -16,7 +16,7 @@ class ArtService {
             .catch(err => console.log(err));
     };
 
-    allArtworks = genre => {
+    allArtworks = (genre) => {
         return this.service
             .get(`/${genre}`)
             .then(response => response.data)

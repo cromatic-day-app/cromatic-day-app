@@ -36,12 +36,13 @@ genresArray.forEach(genre => {
             `https://collectionapi.metmuseum.org/public/collection/v1/objects/${dataID}`
           ).then(picture => {
             picture = JSON.parse(picture);
+            // if (picture.isHighlight) {
             let { title, primaryImageSmall, artistDisplayName } = picture;
             newArtwork = new Artwork({
               title: title,
               primaryImageSmall: primaryImageSmall,
               artistDisplayName: artistDisplayName,
-              price: Math.floor((Math.random() * (50-30))+30),
+              price: Math.floor((Math.random() * (100 - 30)) + 30),
               date: randomDate(new Date(), new Date(2019, 4, 30)),
               genre: genre
             });
@@ -51,6 +52,7 @@ genresArray.forEach(genre => {
                 console.log("ok");
               })
               .catch(err => console.log(err));
+            // }
           });
         });
       })

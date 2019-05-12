@@ -12,7 +12,7 @@ router.get('/allGenres', (req, res, next) => {
 router.get('/:genre', (req, res, next) => {
   let genre = req.params.genre
   Artwork
-    .find({ genre })
+    .find({ genre: genre })
     .then(genreArtworks => res.json(genreArtworks))
     .catch(err => res.json(err))
 })
