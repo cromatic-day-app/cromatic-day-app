@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ArtService from './art-service';
+import ArtService from '../art-service';
 
 class Events extends React.Component {
   constructor(props) {

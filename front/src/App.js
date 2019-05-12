@@ -4,10 +4,11 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
-import Home from './components/Home';
-import Events from './components/Events';
-import ArtworkDetail from './components/ArtworkDetail';
-import Profile from './components/Profile';
+import Home from './components/Global/Home';
+import Events from './components/Global/Events';
+import Profile from './components/Global/Profile';
+import OneArtwork from './components/Global/OneArtwork';
+import AboutUs from './components/Global/AboutUs';
 
 
 class App extends React.Component {
@@ -56,6 +57,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Home} />
 
+          <Route exact path='/about-us' component={AboutUs} />
+
           <Route exact path='/signup' render={() =>
             this.state.loggedInUser ? <Redirect to={"/events"} /> :
               <Signup />} />
@@ -73,7 +76,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre/:artworkId' render={() =>
-            this.state.loggedInUser ? <ArtworkDetail /> :
+            this.state.loggedInUser ? <OneArtwork /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
