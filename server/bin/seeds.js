@@ -22,7 +22,7 @@ function randomDate(start, end) {
   );
 }
 
-let genresArray = ["Architecture", "Van Gogh"];
+let genresArray = ["Architecture", "Van-Gogh"];
 
 genresArray.forEach(genre => {
   Artwork.deleteMany().then(() => {
