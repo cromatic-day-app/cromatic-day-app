@@ -2,32 +2,44 @@ import React from "react";
 import ArtService from "../art-service";
 import "bulma/css/bulma.css";
 import "./AllArtworks.css";
+import { Link } from 'react-router-dom';
+import ModalCard from './ModalCard';
+
 class AllArtworks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allArtworks: []
+      allArtworks: [],
+      isOpen: false
     };
     this.ArtService = new ArtService();
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.ArtService.allArtworks(nextProps.selectedGenre).then(artworks => {
-      console.log(artworks);
-      this.setState({
-        ...this.state,
-        allArtworks: artworks
-      });
+  handleShowDialog = () => {
+    this.setState({
+      isOpen: true
     });
+    console.log('cliked');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.ArtService.allArtworks(nextProps.selectedGenre)
+      .then(artworks => {
+        this.setState({
+          ...this.state,
+          allArtworks: artworks
+        })
+      })
   }
 
   componentDidMount() {
-    this.ArtService.allArtworks(this.props.selectedGenre).then(artworks => {
-      this.setState({
-        ...this.state,
-        allArtworks: artworks
-      });
-    });
+    this.ArtService.allArtworks(this.props.selectedGenre)
+      .then(artworks => {
+        this.setState({
+          ...this.state,
+          allArtworks: artworks
+        })
+      })
   }
 
   render() {
@@ -52,7 +64,6 @@ class AllArtworks extends React.Component {
                       <p class="title is-4">{artwork.title}</p>
                     </div>
                   </div>
-
                   <div class="content">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus nec iaculis mauris. 

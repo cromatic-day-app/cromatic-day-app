@@ -25,8 +25,7 @@ class Login extends React.Component {
           password: password,
           logged: true,
           error: false
-        });
-        this.props.getUser(response)
+        },() => this.props.getUser(response));
       })
       .catch(error => {
         this.setState({

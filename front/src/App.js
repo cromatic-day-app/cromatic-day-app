@@ -9,7 +9,7 @@ import Events from './components/Global/Events';
 import Profile from './components/Global/Profile';
 import OneArtwork from './components/Global/OneArtwork';
 import AboutUs from './components/Global/AboutUs';
-
+import ModalCard from './components/Partials/ModalCard';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,20 +19,9 @@ class App extends React.Component {
     };
     this.service = new AuthService();
   }
-
-  getUser = (userObj) => {
-    this.setState({
-      loggedInUser: userObj
-    })
-  }
-
-  logout = () => {
-    this.service.logout()
-      .then(() => {
-        this.setState({
-          loggedInUser: null
-        });
-      })
+  
+  componentWillMount() {
+    this.fetchUser();
   }
 
   fetchUser() {
@@ -51,7 +40,23 @@ class App extends React.Component {
     }
   }
 
+  getUser = (userObj) => {
+    this.setState({
+      loggedInUser: userObj
+    })
+  }
+
+  logout = () => {
+    this.service.logout()
+      .then(() => {
+        this.setState({
+          loggedInUser: null
+        });
+      })
+  }
+
   render() {
+    this.fetchUser();
     return (
       <React.Fragment>
         <Switch>
@@ -65,10 +70,10 @@ class App extends React.Component {
 
           <Route exact path='/login' render={() =>
             this.state.loggedInUser ? <Redirect to={"/events"} /> :
-              <Login getUser={this.getUser} />}/>
+              <Login getUser={this.getUser} />} />
 
           <Route exact path='/events' render={() =>
-            this.state.loggedInUser ? <Events user={this.state.loggedInUser}/> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre' render={() =>
@@ -76,13 +81,13 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre/:artworkId' render={() =>
-            this.state.loggedInUser ? <OneArtwork /> :
+            this.state.loggedInUser ? <ModalCard /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
             this.state.loggedInUser ? <Profile getUser={this.getUser} logout={this.logout} /> :
               <Redirect to={'/login'} />} />
-          
+
         </Switch>
       </React.Fragment>
     );
