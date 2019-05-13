@@ -79,7 +79,7 @@ class AllGenres extends React.Component {
           })
         }
         { this.state.genreSelected !== undefined &&
-          <AllArtworks javi={this.state.genreSelected}></AllArtworks>
+          <AllArtworks selectedGenre={this.state.genreSelected}></AllArtworks>
         }
       
       </div>

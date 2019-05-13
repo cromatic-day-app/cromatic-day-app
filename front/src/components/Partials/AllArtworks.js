@@ -11,7 +11,7 @@ class AllArtworks extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.ArtService.allArtworks(nextProps.javi)
+    this.ArtService.allArtworks(nextProps.selectedGenre)
       .then(artworks => {
         console.log(artworks);
         this.setState({
@@ -22,7 +22,7 @@ class AllArtworks extends React.Component {
   }
 
   componentDidMount() {
-    this.ArtService.allArtworks(this.props.javi)
+    this.ArtService.allArtworks(this.props.selectedGenre)
       .then(artworks => {
         this.setState({
           ...this.state,
@@ -45,7 +45,7 @@ class AllArtworks extends React.Component {
             )
           })
         }
-        <h1>Soy el componente artWorks {this.props.javi}</h1>
+        <h1>Soy el componente artWorks {this.props.selectedGenre}</h1>
       </div>
     )
   }
