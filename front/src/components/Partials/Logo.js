@@ -1,5 +1,7 @@
 import React from "react";
 import "./Logo.css";
+import "bulma/css/bulma.css";
+
 
 class Logo extends React.Component {
   render() {

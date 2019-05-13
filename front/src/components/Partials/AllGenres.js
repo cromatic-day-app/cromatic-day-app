@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArtService from '../art-service';
 import AllArtworks from './AllArtworks';
+import "./AllGenres.css";
+import "bulma/css/bulma.css";
+
+
+
 
 class AllGenres extends React.Component {
   constructor(props) {
@@ -66,15 +71,26 @@ class AllGenres extends React.Component {
   render() {
     return (
       <div>
+         <div className= "collections">
+
         {
           this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
             return (
               <div key={idx}>
                 <button onClick={() => this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
+              
               </div>
             )
           })
         }
+        <button>Portraits</button>
+        <button>Andy Warhol</button>
+        <button>Jan Van Eyik</button>
+        <button>Frida kahlo</button>
+        
+        </div>    
+
+
         {
           this.state.genreSelected !== undefined &&
           <AllArtworks selectedGenre={this.state.genreSelected}></AllArtworks>
