@@ -53,6 +53,7 @@ class App extends React.Component {
   }
 
   logout = () => {
+    console.log("cerrar sesión")
     this.service.logout()
       .then(() => {
         this.setState({
@@ -67,7 +68,7 @@ class App extends React.Component {
       <React.Fragment>
         {
           !this.state.hide ?
-            <MainNav user={this.state.loggedInUser} getUser={this.getUser}></MainNav> :
+            <MainNav user={this.state.loggedInUser}></MainNav> :
             <div className='topHeaderApp'>
               <div >
                 <img src="../img/logo.png" />

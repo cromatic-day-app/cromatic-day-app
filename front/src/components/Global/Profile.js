@@ -23,7 +23,7 @@ class Profile extends React.Component {
     return (
       <div>
         <Link to='/'>
-          <button onClick={this.handleLogout}>Logout</button>
+          <button onClick={() => this.handleLogout()}>Logout</button>
         </Link>
         <h1>Profile</h1>
         <h2>reservas</h2>
