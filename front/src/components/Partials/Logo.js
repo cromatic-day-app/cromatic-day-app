@@ -1,19 +1,23 @@
 import React from "react";
-import './Logo.css'
+import "./Logo.css";
 
 class Logo extends React.Component {
   render() {
     if (this.props.user) {
       return (
-        <div className="test1">
-          <p>ESTOY LOGUEADO</p>
-          <img src="../img/logo.png"/>
-          <i className="fas fa-user-circle" />
-          <i className="fas fa-shopping-cart"></i>
+        <div>
+        <div className='topHeader'>
+          <div >
+            <img src="../img/logo.png" />
+          </div>
         </div>
+          <div className='loggedInIcons'>
+            <i className="fas fa-user-circle" />
+            <i className="fas fa-shopping-cart" />
+          </div>
+          </div>
       );
     } else {
-
       return (
         <div className="test2">
           <img src="../img/logo.png" />
@@ -24,3 +28,5 @@ class Logo extends React.Component {
 }
 
 export default Logo;
+
+// className="d-flex justify-content-center"

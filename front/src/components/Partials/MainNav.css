@@ -1,16 +1,19 @@
-.container {
-    width: 55%;
+/* .d-flex {
+    width: 100%;
     height: 15vh;
+}  */
+
+.topHeader {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    width: 100%;
+    background-color: aquamarine;
     align-items: center;
-    background-color: black;
+    justify-content: center;
+    padding: 15px 0px;
 }
 
-
-/* 
-.logo-img {
-    width: 177 px;
-    height: 100 px;
-} */
+#menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
