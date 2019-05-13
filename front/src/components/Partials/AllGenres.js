@@ -8,7 +8,7 @@ class AllGenres extends React.Component {
     super(props);
     this.state = {
       allGenres: [],
-      "display": false
+      genreSelected: undefined
     }
     this.ArtService = new ArtService();
   }
@@ -39,14 +39,16 @@ class AllGenres extends React.Component {
     return tempArray;
   }
 
-  showGenreArtworks = () => {
+  showGenreArtworks = (pictureGenre) => {
+    
     if (this.state.display === "none") {
       this.setState({
-        "display": "block"
+        genreSelected: pictureGenre
+
       })
     } else {
       this.setState({
-        "display": "none"
+        genreSelected: pictureGenre
       })
     }
   }
@@ -62,20 +64,24 @@ class AllGenres extends React.Component {
   }
 
   render() {
+    console.log(this.state);
+    
     return (
       <div>
         {
+          
           this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
             return (
               <div key={idx}>
-                <button onClick={this.showGenreArtworks}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
+                <button onClick={()=>this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
               </div>
             )
           })
         }
-        <div style={{ display: this.state.display }}>
-          <AllArtworks></AllArtworks>
-        </div>
+        { this.state.genreSelected !== undefined &&
+          <AllArtworks javi={this.state.genreSelected}></AllArtworks>
+        }
+      
       </div>
     )
   }
