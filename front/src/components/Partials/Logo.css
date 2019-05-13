@@ -1,8 +1,16 @@
-.test1 {
+/* .d-flex {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
+}
+
+.main {
+    display: flex;
+    height: 150px;
+    margin-top: 10px;
+    align-items: center;
+    background-color: red;
 }
 
 .test2 {
@@ -11,10 +19,19 @@
     align-items: center;
     height: 100px;
 }
+*/
 
 img {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 200px;
+    height: 100px;
+    justify-content: center;
+}
+
+.loggedInIcons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 5%;
+    margin: -70px 80px 70px 0px;
 }

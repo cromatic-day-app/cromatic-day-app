@@ -1,22 +1,29 @@
-import React from 'react'
-import Logo from './Logo';
+import React from "react";
+import Logo from "./Logo";
 import Navigator from './Navigator';
+import "./MainNav.css";
 
 class MainNav extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loggedInUser: null
     };
   }
 
   render() {
-   return (
-      <div className= "container">
-        <Logo user={this.props.user}></Logo>
-        <Navigator></Navigator>
+    return (
+      <div>
+        <div>
+          <Logo user={this.props.user} />
+        </div>
+
+        <div id='menu'>
+          <Navigator />
+        </div>
+      
       </div>
-    )
+    );
   }
 }
 
