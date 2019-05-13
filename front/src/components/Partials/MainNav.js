@@ -2,6 +2,8 @@ import React from "react";
 import Logo from "./Logo";
 import Navigator from './Navigator';
 import "./MainNav.css";
+import "bulma/css/bulma.css";
+
 
 class MainNav extends React.Component {
   constructor(props) {
