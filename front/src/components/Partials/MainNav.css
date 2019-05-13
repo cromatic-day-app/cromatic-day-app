@@ -6,7 +6,15 @@
 .topHeader {
     display: flex;
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0px;
+}
+
+.topHeader2 {
+    display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     padding: 15px 0px;
@@ -16,4 +24,39 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.loggedInIcons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 5%;
+    margin: -70px 80px 70px 0px;
+    text-decoration-line: none;
+    align-items: center;
+}
+
+.icons{
+   font-size: 20px;
+   color: #4a4a4a;
+   width: 40px;
+}
+
+img {
+    display: flex;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #4a4a4a;
+    width: 100px;
+    text-align: center;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #4a4a4a;
 }

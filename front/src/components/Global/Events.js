@@ -11,11 +11,7 @@ class Events extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <MainNav user={this.props.user}></MainNav>
         <AllGenres></AllGenres>
-        <Link to='/profile'>
-          <button>Profile</button>
-        </Link>
       </React.Fragment>
     )
   }

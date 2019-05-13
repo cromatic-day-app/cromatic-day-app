@@ -4,6 +4,16 @@ import MainNav from '../Partials/MainNav';
 
 
 class Profile extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    this.props.toggleHeader()
+  }
+
+  componentWillUnmount(){
+    this.props.toggleHeader()
+  }
 
   handleLogout = () => {
     this.props.logout()
@@ -12,7 +22,6 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <MainNav></MainNav>
         <Link to='/'>
           <button onClick={this.handleLogout}>Logout</button>
         </Link>

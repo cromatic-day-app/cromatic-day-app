@@ -12,7 +12,6 @@ class OneArtwork extends React.Component {
   render() {
     return (
       <div>
-        <MainNav></MainNav>
         <Card></Card>
       </div>
     )

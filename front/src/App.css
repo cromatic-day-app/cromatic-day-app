@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+.topHeaderApp {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0px;
+}
+
+img {
+  display: flex;
+  width: 200px;
+  height: 100px;
+  justify-content: center;
+}

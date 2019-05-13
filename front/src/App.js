@@ -10,18 +10,24 @@ import Profile from './components/Global/Profile';
 import OneArtwork from './components/Global/OneArtwork';
 import AboutUs from './components/Global/AboutUs';
 import ModalCard from './components/Partials/ModalCard';
+import MainNav from './components/Partials/MainNav';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedInUser: null
+      loggedInUser: null,
+      hide: false
     };
     this.service = new AuthService();
   }
-  
-  componentWillMount() {
-    this.fetchUser();
+
+  toggleHeader = () => {
+    const { hide } = this.state
+    this.setState({
+      ...this.state,
+      hide: !hide
+    })
   }
 
   fetchUser() {
@@ -59,6 +65,15 @@ class App extends React.Component {
     this.fetchUser();
     return (
       <React.Fragment>
+        {
+          !this.state.hide ?
+            <MainNav user={this.state.loggedInUser} getUser={this.getUser}></MainNav> :
+            <div className='topHeaderApp'>
+              <div >
+                <img src="../img/logo.png" />
+              </div>
+            </div>
+        }
         <Switch>
           <Route exact path='/' component={Home} />
 
@@ -85,7 +100,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
-            this.state.loggedInUser ? <Profile getUser={this.getUser} logout={this.logout} /> :
+            this.state.loggedInUser ? <Profile getUser={this.getUser} logout={this.logout} toggleHeader={() => this.toggleHeader()} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>
