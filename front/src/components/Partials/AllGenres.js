@@ -40,7 +40,7 @@ class AllGenres extends React.Component {
   }
 
   showGenreArtworks = (pictureGenre) => {
-    
+
     if (this.state.display === "none") {
       this.setState({
         genreSelected: pictureGenre
@@ -64,24 +64,21 @@ class AllGenres extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    
     return (
       <div>
         {
-          
           this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
             return (
               <div key={idx}>
-                <button onClick={()=>this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
+                <button onClick={() => this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
               </div>
             )
           })
         }
-        { this.state.genreSelected !== undefined &&
+        {
+          this.state.genreSelected !== undefined &&
           <AllArtworks selectedGenre={this.state.genreSelected}></AllArtworks>
         }
-      
       </div>
     )
   }

@@ -4,12 +4,16 @@ import MainNav from '../Partials/MainNav';
 
 
 class OneArtwork extends React.Component {
+  constructor(props){
+    super(props);
+
+  }
+
   render() {
     return (
       <div>
-        <h1>WELCOME from Detail</h1>
-        <Card></Card>
         <MainNav></MainNav>
+        <Card></Card>
       </div>
     )
   }
