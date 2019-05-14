@@ -8,7 +8,7 @@ class AllArtworks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allArtworks: []
+      allArtworks: [],
     };
     this.ArtService = new ArtService();
   }
@@ -74,7 +74,10 @@ class AllArtworks extends React.Component {
                       {/* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
                     </div>
                   </div>
-                  <button onClick={() => this.showModal("m" + idx)}>Details</button>
+                  <div>
+                    <button onClick={() => this.showModal("m" + idx)}>More details</button>
+                    <button onClick={this.props.addItem}>Add to cart</button>
+                  </div>
                 </div>
                 <ModalCard artwork={artwork} idx={idx}></ModalCard>
               </div>
