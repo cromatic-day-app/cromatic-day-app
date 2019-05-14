@@ -7,7 +7,6 @@ import Login from './components/auth/Login';
 import Home from './components/Global/Home';
 import Events from './components/Global/Events';
 import Profile from './components/Global/Profile';
-import OneArtwork from './components/Global/OneArtwork';
 import AboutUs from './components/Global/AboutUs';
 import ModalCard from './components/Partials/ModalCard';
 import MainNav from './components/Partials/MainNav';
