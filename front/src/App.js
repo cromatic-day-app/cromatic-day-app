@@ -118,7 +118,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
-            this.state.loggedInUser ? <Profile getUser={this.getUser} logout={this.logout} toggleHeader={() => this.toggleHeader()} /> :
+            this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} logout={this.logout} toggleHeader={() => this.toggleHeader()} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>

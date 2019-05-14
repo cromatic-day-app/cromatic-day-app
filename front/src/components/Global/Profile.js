@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Profile.css';
 
 class Profile extends React.Component {
   constructor(props){
@@ -20,6 +21,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
+        <img src={this.props.userPhoto} style={{height: 150}}/>    
         <Link to='/'>
           <button onClick={() => this.handleLogout()}>Logout</button>
         </Link>

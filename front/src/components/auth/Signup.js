@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthService from './auth-service';
 import { Redirect } from 'react-router-dom';
-import Avatar from 'react-avatar-edit'
+import Avatar from 'react-avatar-edit';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -10,28 +10,26 @@ class Signup extends React.Component {
       username: "",
       password: "",
       userPhoto: "",
-      saved: false,
-      // src: ""
+      preview: "",
+      saved: false
     };
     this.service = new AuthService();
-    // this.onCrop();
-    // this.onClose();
   }
 
-  // onClose = () => {
-  //   this.setState({ userPhoto: null })
-  // }
+  onClose = () => {
+    this.setState({ userPhoto: null })
+  }
 
-  // onCrop = (userPhoto) => {
-  //   this.setState({ userPhoto })
-  // }
+  onCrop = (preview) => {
+    this.setState({ preview })
+  }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
     console.log(this.state)
-    const { username, password, userPhoto } = this.state;
+    const { username, password, preview } = this.state;
 
-    this.service.signup(username, password, userPhoto)
+    this.service.signup(username, password, preview)
       .then(() => {
         this.setState({
           username: "",
@@ -58,15 +56,13 @@ class Signup extends React.Component {
   }
 
   handleFileUpload = (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadData = new FormData();
-    // imageUrl => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+
     uploadData.append("userPhoto", e.target.files[0]);
     this.service.handleUpload(uploadData)
       .then(response => {
-        console.log('response is: ', response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        // console.log('response is: ', response);
         this.setState({ userPhoto: response.secure_url });
       })
       .catch(err => {
@@ -91,17 +87,17 @@ class Signup extends React.Component {
             <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
           </fieldset>
 
-          {/* <Avatar
-            width={390}
-            height={295}
-            onCrop={() => this.onCrop()}
-            onClose={() => this.onClose()}
-            src={this.state.userPhoto}
-          /> */}
+          <Avatar
+            width={150}
+            height={150}
+            onCrop={(preview) => this.onCrop(preview)}
+            onClose={(preview) => this.onClose(preview)}
+          // src={this.state.userPhoto}
+          />
 
-          <input
+          {/* <input
             type="file"
-            onChange={(e) => this.handleFileUpload(e)} />
+            onChange={(e) => this.handleFileUpload(e)} /> */}
 
           <input type="submit" value="Sign up" />
         </form>
