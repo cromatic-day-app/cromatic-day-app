@@ -6,7 +6,7 @@ const request = require("request-promise");
 const Artwork = require("../models/Artwork");
 
 mongoose
-    .connect(process.env.LOCAL_MONGO, { useNewUrlParser: true })
+    .connect(`${process.env.LOCAL_MONGO}`, { useNewUrlParser: true })
     .then(x => {
         console.log(
             `Connected to Mongo! Database name: "${x.connections[0].name}"`
