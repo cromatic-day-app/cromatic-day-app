@@ -11,7 +11,7 @@ class Events extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <AllGenres></AllGenres>
+        <AllGenres addItem={this.props.addItem}></AllGenres>
       </React.Fragment>
     )
   }

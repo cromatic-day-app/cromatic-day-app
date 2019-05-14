@@ -16,9 +16,18 @@ class App extends React.Component {
     super(props)
     this.state = {
       loggedInUser: null,
-      hide: false
+      hide: false,
+      qty: 0
     };
     this.service = new AuthService();
+  }
+
+  addItem = () => {
+    this.setState({
+      ...this.state,
+      qty: this.state.qty + 1
+    });
+    // this.props.handleTotal(this.props.price);
   }
 
   toggleHeader = () => {
@@ -67,7 +76,7 @@ class App extends React.Component {
       <React.Fragment>
         {
           !this.state.hide ?
-            <MainNav user={this.state.loggedInUser}></MainNav> :
+            <MainNav user={this.state.loggedInUser} qty={this.state.qty}></MainNav> :
             <div className='topHeaderApp'>
               <div >
                 <img src="../img/logo.png" />
@@ -88,11 +97,11 @@ class App extends React.Component {
               <Login getUser={this.getUser} />} />
 
           <Route exact path='/events' render={() =>
-            this.state.loggedInUser ? <Events user={this.state.loggedInUser} /> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()}/> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre' render={() =>
-            this.state.loggedInUser ? <Events /> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()}/> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre/:artworkId' render={() =>

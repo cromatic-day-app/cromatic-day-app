@@ -9,7 +9,7 @@ class MainNav extends React.Component {
     super(props);
     this.service = new AuthService();
     this.state = {
-      loggedInUser: null
+      loggedInUser: null,
     };
   }
 
@@ -27,6 +27,9 @@ class MainNav extends React.Component {
               <div className='loggedInIcons'>
                 <Link to='/profile' className="icons"><i className="fas fa-user-circle" /></Link>
                 <i className="fas fa-shopping-cart icons" />
+                {
+                  (this.props.qty) > 0 ? <span>{this.props.qty}</span> : null
+                }
               </div>
               <div id="menu">
                 <div id='nav' className='columns'>

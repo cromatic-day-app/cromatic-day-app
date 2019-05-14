@@ -71,29 +71,21 @@ class AllGenres extends React.Component {
   render() {
     return (
       <div>
-         <div className= "collections">
+        <div className="collections">
+          {
+            this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
+              return (
+                <div key={idx}>
+                  <button onClick={() => this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
 
-        {
-          this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
-            return (
-              <div key={idx}>
-                <button onClick={() => this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
-              
-              </div>
-            )
-          })
-        }
-        <button>Portraits</button>
-        <button>Andy Warhol</button>
-        <button>Jan Van Eyik</button>
-        <button>Frida kahlo</button>
-        
-        </div>    
-
-
+                </div>
+              )
+            })
+          }
+        </div>
         {
           this.state.genreSelected !== undefined &&
-          <AllArtworks selectedGenre={this.state.genreSelected}></AllArtworks>
+          <AllArtworks selectedGenre={this.state.genreSelected} addItem={this.props.addItem}></AllArtworks>
         }
       </div>
     )
