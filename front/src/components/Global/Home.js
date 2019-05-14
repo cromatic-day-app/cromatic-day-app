@@ -14,8 +14,8 @@ class Home extends React.Component {
       <React.Fragment>
 
         <h1>Home page</h1>
-        <button><Link to='/Login'>Login</Link></button>
-        <button><Link to='/Signup'>Signup</Link></button>
+        <button><Link to='/login'>Login</Link></button>
+        <button><Link to='/signup'>Signup</Link></button>
 
       </React.Fragment>
     )

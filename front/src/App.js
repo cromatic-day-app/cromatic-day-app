@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Link } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 import Signup from './components/auth/Signup';
@@ -61,7 +62,6 @@ class App extends React.Component {
   }
 
   logout = () => {
-    console.log("cerrar sesión")
     this.service.logout()
       .then(() => {
         this.setState({
@@ -75,11 +75,20 @@ class App extends React.Component {
     return (
       <React.Fragment>
         {
-          !this.state.hide ?
-            <MainNav user={this.state.loggedInUser} qty={this.state.qty}></MainNav> :
-            <div className='topHeaderApp'>
-              <div >
-                <img src="../img/logo.png" />
+          !this.state.hide
+            ? <MainNav user={this.state.loggedInUser} qty={this.state.qty}></MainNav>
+            : <div>
+              <div className='topHeader'>
+                <div >
+                  <img src="../img/logo.png" alt="img" />
+                </div>
+              </div>
+              <div className='loggedInIcons'>
+                <Link to='/profile' className="icons"><i className="fas fa-user-circle" /></Link>
+                <i className="fas fa-shopping-cart icons" />
+                {
+                  (this.state.qty) > 0 ? <span>{this.state.qty}</span> : null
+                }
               </div>
             </div>
         }
@@ -97,11 +106,11 @@ class App extends React.Component {
               <Login getUser={this.getUser} />} />
 
           <Route exact path='/events' render={() =>
-            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()}/> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()} /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre' render={() =>
-            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()}/> :
+            this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()} /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/events/:genre/:artworkId' render={() =>

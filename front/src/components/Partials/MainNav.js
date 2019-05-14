@@ -21,7 +21,7 @@ class MainNav extends React.Component {
             <div>
               <div className='topHeader'>
                 <div >
-                  <img src="../img/logo.png" />
+                  <img src="../img/logo.png" alt="img" />
                 </div>
               </div>
               <div className='loggedInIcons'>
@@ -43,7 +43,7 @@ class MainNav extends React.Component {
             :
             <div className='topHeader2'>
               <div >
-                <img src="../img/logo.png" />
+                <img src="../img/logo.png" alt="img"/>
               </div>
             </div>
         }

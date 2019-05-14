@@ -22,11 +22,12 @@ const login = (req, user) => {
 }
 
 router.post("/signup", (req, res, next) => {
-  const { username, password, profilePhoto } = req.body;
+  const { username, password, userPhoto } = req.body;
 
   if (!username || !password) {
     next(new Error('You must provide valid credentials'));
   }
+  
   User
     .findOne({ username })
     .then(foundUser => {
@@ -38,26 +39,13 @@ router.post("/signup", (req, res, next) => {
       return new User({
         username,
         password: hashPass,
-        profilePhoto
+        userPhoto
       }).save();
     })
     .then(savedUser => login(req, savedUser))
     .then(user => res.json({ status: 'signup & login successfully', user }))
     .catch(e => next(e));
 });
-
-router.post('/upload/:userId', uploadCloud.single('profilePhoto'), (req, res, next) => {
-  let userPhoto = req.file.url;
-  User.findByIdAndUpdate(req.params.userId, {
-    userPhoto
-  }, { new: true })
-    .then(user => {
-      res.json(user)
-    })
-    .catch(error => {
-      console.log(error);
-    })
-})
 
 router.post("/login", (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {

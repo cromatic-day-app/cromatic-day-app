@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MainNav from '../Partials/MainNav';
-
 
 class Profile extends React.Component {
   constructor(props){

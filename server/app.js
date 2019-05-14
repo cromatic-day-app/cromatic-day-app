@@ -84,6 +84,8 @@ require('./passport')(app);
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
+app.use('/api', require ('./routes/upload'));
+
 const artRoutes = require('./routes/art');
 app.use('/api/art', artRoutes);
 
