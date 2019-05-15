@@ -93,7 +93,7 @@ class Login extends React.Component {
                   onChange={e => this.handleChange(e)}
                   />
 
-                  <p className="badpass2">{this.state.error.length > 0 ? this.state.error : null}</p>
+                  <p>{this.state.error.length > 0 ? this.state.error : null}</p>
 
                   <input className="btn1" type="submit" value="Login" />
 
