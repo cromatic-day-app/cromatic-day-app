@@ -84,10 +84,10 @@ class App extends React.Component {
                 </div>
               </div>
               <div className='loggedInIcons'>
-                <Link to='/profile' className="icons"><i className="fas fa-user-circle" /></Link>
-                <i className="fas fa-shopping-cart icons" />
+                <Link className="logout-link" to='/' onClick={() => this.logout()}>Logout</Link>
+                <i className="fas fa-shopping-cart cart" />
                 {
-                  (this.state.qty) > 0 ? <span>{this.state.qty}</span> : null
+                  (this.state.qty) > 0 ? <span className="qty">{this.state.qty}</span> : null
                 }
               </div>
             </div>
@@ -118,7 +118,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
-            this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} logout={this.logout} toggleHeader={() => this.toggleHeader()} /> :
+            this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>

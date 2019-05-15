@@ -1,3 +1,86 @@
-/* .avatar {
-  height: 100px;
-} */
+body {
+  overflow:hidden;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f8f9;
+  height: 80vh;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.back {
+  display: flex;
+  width: 1174px;
+}
+
+.back-link{
+  text-decoration-line: none;
+  font-size: 15px;
+  justify-content: flex-start;
+  left: 0;
+  color: #ac8fff;
+  font-weight: 500;
+}
+
+.arrow {
+  margin-right: 5px;
+}
+
+.back-link:hover {
+  color: #ac8fff;
+  font-weight: bold;
+}
+
+.user-img {
+  height: 74px;
+  width: 74px;
+  margin-top: 30px;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  height: 550px;
+  width: 1174px;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.profile-box h2 {
+  margin-bottom: 15px;
+}
+
+.username {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.books-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f6fafd;
+  height: 350px;
+  width: 400px;
+  justify-content: flex-start;
+  border: 1px solid silver;
+}
+
+.books-box h2 {
+  margin-top: 30px;
+}
+
+.line{
+  width: 300px;
+  border-bottom: 1px solid silver;
+}

@@ -1,3 +1,7 @@
+/* nav {
+    height: 20vh;
+} */
+
 .topHeader {
     display: flex;
     width: 100%;
@@ -54,4 +58,15 @@ img {
 .link:hover {
     text-decoration: none;
     color: #4a4a4a;
+}
+
+.qty {
+    color: #ac8fff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cart {
+    color: #4a4a4a;
+    margin-right: 5px;
 }

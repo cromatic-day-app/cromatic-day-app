@@ -26,7 +26,6 @@ class Signup extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
     const { username, password, preview } = this.state;
 
     this.service.signup(username, password, preview)
