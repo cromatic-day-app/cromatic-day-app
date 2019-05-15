@@ -25,7 +25,7 @@ body {
 }
 
 .boxform1 {
-    width: 900px;
+    width: 700px;
     height: 500px;
     box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
     background-color: white;
@@ -53,7 +53,7 @@ body {
 
 .inputsizes1 {
     width: 400px;
-    margin-left: 250px;
+    margin-left: 150px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
