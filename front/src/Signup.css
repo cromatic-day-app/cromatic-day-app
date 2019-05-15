@@ -15,6 +15,10 @@ body {
     margin-bottom: 20px;
 }
 
+.avatar {
+    justify-content: flex-start;
+}
+
 .formbg {
     display: flex;
     justify-content: center;

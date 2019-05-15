@@ -70,6 +70,7 @@
 
 .home .cube img {
     z-index: -1;
+    height: 200px;
 }
 
 .home .boxbtn {
@@ -80,9 +81,6 @@
     background-color: #daf5fc;
     width: 545px;
     height: 496px;
-    /* justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; */
     position: absolute;
     z-index: -1;
 }
