@@ -111,7 +111,7 @@ body {
   font-weight: lighter;
 }
 
-.txt {
+.txt-artwork {
   display: flex;
   text-align: left;
   flex-direction: column;

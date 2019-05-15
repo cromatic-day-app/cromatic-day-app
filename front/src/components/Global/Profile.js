@@ -56,7 +56,7 @@ class Profile extends React.Component {
                     return (
                       <div className="all-artworks" key={idx}>
                         <div className="each-artwork" key={idx}>
-                          <div className="txt">
+                          <div className="txt-artwork">
                             <h2>{artwork.title}</h2>
                             <p>{artwork.artistDisplayName}</p>
                           </div>
