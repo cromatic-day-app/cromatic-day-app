@@ -25,7 +25,7 @@ class Profile extends React.Component {
           </Link>
           </div>
           <div className="profile-box">
-            <img className="user-img" src={this.props.userPhoto} />
+            <img className="user-img2" src={this.props.userPhoto} />
             <h2 className="username">{this.props.username}</h2>
             <div className="books-box">
               <h2>COMING SOON...</h2>

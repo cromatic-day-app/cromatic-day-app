@@ -33,15 +33,11 @@
     margin: -70px 80px 70px 0px;
     text-decoration-line: none;
     align-items: center;
-}
-
-.icons {
     font-size: 20px;
     color: #4a4a4a;
-    width: 40px;
 }
 
-img {
+.img-logo {
     display: flex;
     width: 200px;
     height: 100px;
@@ -68,8 +64,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 75px;
+    position: absolute;
+    top: 85px;
     right: 65px;
 }
 
@@ -82,4 +78,21 @@ img {
 .cart {
     color: #4a4a4a;
     margin-right: 5px;
+}
+
+.prof-img {
+    height: 40px;
+    width: 40px;
+}
+
+.link-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-img {
+    margin-right: 20px;
+    height: 40px;
+    width: 40px;
 }
