@@ -60,10 +60,23 @@ img {
     color: #4a4a4a;
 }
 
+.qty-box {
+    border-radius: 50%;
+    background-color: #9013fe;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 75px;
+    right: 65px;
+}
+
 .qty {
-    color: #ac8fff;
+    color: white;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .cart {

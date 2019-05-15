@@ -28,7 +28,11 @@ class MainNav extends React.Component {
                 <Link to='/profile' className="icons"><i className="fas fa-user-circle" /></Link>
                 <i className="fas fa-shopping-cart cart" />
                 {
-                  (this.props.qty) > 0 ? <span className="qty">{this.props.qty}</span> : null
+                  (this.props.qty) > 0
+                    ? <div className="qty-box">
+                      <span className="qty">{this.props.qty}</span>
+                    </div>
+                    : null
                 }
               </div>
               <div id="menu">
@@ -43,7 +47,7 @@ class MainNav extends React.Component {
             :
             <div className='topHeader2'>
               <div >
-                <img src="../img/logo.png" alt="img"/>
+                <img src="../img/logo.png" alt="img" />
               </div>
             </div>
         }
