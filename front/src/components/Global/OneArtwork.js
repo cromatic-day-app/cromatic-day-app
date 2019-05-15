@@ -4,7 +4,7 @@ import MainNav from '../Partials/MainNav';
 
 
 class OneArtwork extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
   }
@@ -12,6 +12,11 @@ class OneArtwork extends React.Component {
   render() {
     return (
       <div>
+        <input
+          type="file"
+          onChange={(e) => this.handleFileUpload(e)}
+        />
+        
         <Card></Card>
       </div>
     )

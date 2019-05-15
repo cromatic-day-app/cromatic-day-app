@@ -14,7 +14,6 @@ class AllArtworks extends React.Component {
   }
 
   showModal = (modalId) => {
-    console.log(modalId);
     const modal = document.getElementById(modalId);
     modal.className = "modal is-active";
   }
@@ -50,13 +49,13 @@ class AllArtworks extends React.Component {
         {
           this.state.allArtworks.map((artwork, idx) => {
             return (
-              <div className="column is-one-third">
+              <div className="column is-one-third" key={idx}>
                 <div className="card" key={idx}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
                         src={artwork.primaryImageSmall}
-                        alt="Placeholder image"
+                        alt="img"
                       />
                     </figure>
                   </div>

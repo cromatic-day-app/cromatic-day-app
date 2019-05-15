@@ -46,3 +46,32 @@ img {
   height: 100px;
   justify-content: center;
 }
+
+.iconsApp{
+  font-size: 20px;
+  color: #4a4a4a;
+  width: 40px;
+}
+
+.logout-link {
+  font-size: 15px;
+  margin-right: 15px;
+  text-decoration-line: none;
+  color: #4a4a4a;
+}
+
+.logout-link:hover {
+  color: #4a4a4a;
+}
+
+.cart {
+  color: #4a4a4a;
+  margin-right: 5px;
+}
+
+.qty {
+  color: #ac8fff;
+  font-weight: bold;
+  margin-left: 0;
+  font-size: 15px;
+}
