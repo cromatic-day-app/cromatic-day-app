@@ -25,8 +25,8 @@ body {
 }
 
 .boxform1 {
-    width: 700px;
-    height: 500px;
+    width: 900px;
+    height: 650px;
     box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
     background-color: white;
     border-radius: 6px;
@@ -53,7 +53,7 @@ body {
 
 .inputsizes1 {
     width: 400px;
-    margin-left: 150px;
+    margin-left: 250px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
@@ -80,8 +80,4 @@ body {
 
 .linklogin1 a:hover {
     color: #9013FE;
-}
-
-.badpass2 {
-    color: red;
 }

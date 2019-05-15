@@ -140,7 +140,8 @@ class Signup extends React.Component {
                     onChange={e => this.handleChange(e)}
                   />
 
-                  <p className="badpass">{this.state.error.length > 0 ? this.state.error : null}</p>
+                  <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+
                   <input className="btn" type="submit" value="Sign up" />
 
                   <div className="linklogin">
