@@ -76,18 +76,22 @@ class App extends React.Component {
       <React.Fragment>
         {
           !this.state.hide
-            ? <MainNav user={this.state.loggedInUser} qty={this.state.qty}></MainNav>
+            ? <MainNav user={this.state.loggedInUser} qty={this.state.qty} {...this.state.loggedInUser}></MainNav>
             : <div>
               <div className='topHeader'>
                 <div >
-                  <img src="../img/logo.png" alt="img" />
+                  <img className="img-logo" src="../img/logo.png" alt="img" />
                 </div>
               </div>
               <div className='loggedInIcons'>
                 <Link className="logout-link" to='/' onClick={() => this.logout()}>Logout</Link>
                 <i className="fas fa-shopping-cart cart" />
                 {
-                  (this.state.qty) > 0 ? <span className="qty">{this.state.qty}</span> : null
+                  (this.state.qty) > 0
+                    ? <div className="qty-box">
+                      <span className="qty">{this.state.qty}</span>
+                    </div>
+                    : null
                 }
               </div>
             </div>
