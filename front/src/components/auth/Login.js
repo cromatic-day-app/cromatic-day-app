@@ -7,7 +7,8 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
-      logged: false
+      logged: false,
+      error: ""
     };
     this.service = new AuthService();
   }
@@ -23,14 +24,13 @@ class Login extends React.Component {
           username: username,
           password: password,
           logged: true,
-          error: false
         },() => this.props.getUser(response));
       })
       .catch(error => {
         this.setState({
           username: username,
           password: password,
-          error: true
+          error: error.response.data.message
         });
       })
   }
@@ -59,7 +59,7 @@ class Login extends React.Component {
           <input type="submit" value="Login" />
         </form>
 
-        <h1>{this.state.error ? 'Error' : ''}</h1>
+        <p>{this.state.error.length > 0 ? this.state.error : null}</p>
       </div>
     )
   }

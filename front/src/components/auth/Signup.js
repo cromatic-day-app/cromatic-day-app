@@ -108,12 +108,7 @@ class Signup extends React.Component {
             height={300}
             onCrop={(preview) => this.onCrop(preview)}
             onClose={(preview) => this.onClose(preview)}
-          // src={this.state.userPhoto}
           />
-
-          {/* <input
-            type="file"
-            onChange={(e) => this.handleFileUpload(e)} /> */}
 
           <input type="submit" value="Sign up" />
         </form>
