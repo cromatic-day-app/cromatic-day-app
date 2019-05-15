@@ -1,7 +1,7 @@
 import React from "react";
 import AuthService from "./auth-service";
 import { Link, Redirect } from "react-router-dom";
-import "../../Signup.css";
+import "./Signup.css";
 import Avatar from "react-avatar-edit";
 
 class Signup extends React.Component {

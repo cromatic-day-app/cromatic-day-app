@@ -29,6 +29,22 @@ class ArtService {
             .then(response => response.data)
             .catch(err => console.log(err));
     };
+
+    userArtworks = (artworkId) => {
+        return this.service
+            .post(`/joinArtworks`, { artworkId })
+            .then(response => response.data)
+            // console.log(response.data)
+            // console.log(response)
+            .catch(err => console.log(err));
+    };
+
+    deleteArtwork(id) {
+        return this.service
+            .delete(`/delete/${id}`)
+            .then(response => response.data)
+            .catch(error => console.log(error))
+    }
 }
 
 export default ArtService;

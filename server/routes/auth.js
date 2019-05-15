@@ -66,12 +66,26 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/currentuser', (req, res, next) => {
-  if (req.isAuthenticated()) {
-      res.status(200).json(req.user);
-      return;
+// router.get('/currentuser', (req, res, next) => {
+//   if (req.isAuthenticated()) {
+//       res.status(200).json(req.user);
+//       return;
+//   }
+//   res.status(403).json({ message: 'Unauthorized' });
+// });
+
+router.get("/currentuser", (req, res, next) => {
+  if (req.user) {
+
+    User.findById(req.user._id)
+    .populate("booked")
+    .then((populatedUser) => {
+      res.status(200).json(populatedUser);
+    })
+    
+  } else {
+    next(new Error("Not logged in"));
   }
-  res.status(403).json({ message: 'Unauthorized' });
 });
 
 router.post('/logout', (req, res, next) => {
