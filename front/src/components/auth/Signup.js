@@ -86,10 +86,7 @@ class Signup extends React.Component {
         <div className="boxform">
           <div className="formbox">
             <form onSubmit={e => this.handleFormSubmit(e)}>
-              <div className="inputsizes">
-                <h3 className="bigtitle">
-                  Welcome!, create your account next:
-                </h3>
+              <div className="photobox">
                 <div className="avatar">
                   <Avatar
                     width={150}
@@ -98,31 +95,62 @@ class Signup extends React.Component {
                     onClose={preview => this.onClose(preview)}
                   />
                 </div>
-                <label className="label">Username</label>
-                <input className="input" type="text" placeholder="Username" />
+                <div className="inputsizes">
+                  <h3 className="bigtitle">
+                    Welcome!, create your account next:
+                  </h3>
 
-                <label className="label">Email</label>
-                <input
-                  className="input"
-                  type="email"
-                  placeholder="e.g. alexsmith@gmail.com"
-                />
+                  <label className="label">Username</label>
+                  <input
+                    className="input"
+                    name="username"
+                    type="text"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={e => this.handleChange(e)}
+                  />
 
-                <label className="label">Password</label>
-                <input className="input" type="password" placeholder="******" />
+                  <label className="label">Email</label>
+                  <input
+                    className="input"
+                    name="email"
+                    type="email"
+                    placeholder="e.g. alexsmith@gmail.com"
+                    value={this.state.email}
+                    onChange={e => this.handleChange(e)}
+                  />
 
-                <label className="label">Confirm your password</label>
-                <input className="input" type="password" placeholder="******" />
+                  <label className="label">Password</label>
+                  <input
+                    className="input"
+                    name="password"
+                    type="password"
+                    placeholder="******"
+                    value={this.state.password}
+                    onChange={e => this.handleChange(e)}
+                  />
 
-                <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+                  <label className="label">Confirm your password</label>
+                  <input
+                    className="input"
+                    name="passwordConfirm"
+                    type="password"
+                    placeholder="******"
+                    value={this.state.passwordConfirm}
+                    onChange={e => this.handleChange(e)}
+                  />
 
-                <input className="btn" type="submit" value="Sign up" />
+                  <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+
+                  <input className="btn" type="submit" value="Sign up" />
+
+                  <div className="linklogin">
+                    <p>Do you already have an account?</p>
+                    <Link to="/login">Login</Link>
+                  </div>
+                </div>
               </div>
             </form>
-            <div className="linklogin">
-              <p>Do you already have an account?</p>
-              <Link to="/login">Login</Link>
-            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import AuthService from './auth-service';
+import { Link, Redirect } from "react-router-dom";
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,24 +45,69 @@ class Login extends React.Component {
   render() {
     // if(this.state.logged) return <Redirect to={"/home"}/>
     return (
-      <div>
-        <h3>Please, login to our site</h3>
-        <form onSubmit={(e) => this.handleFormSubmit(e)}>
-          <fieldset>
-            <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-          </fieldset>
+      // <div>
+      //   <h3>Please, login to our site</h3>
+      //   <form onSubmit={(e) => this.handleFormSubmit(e)}>
+      //     <fieldset>
+      //       <label>Username:</label>
+      //       <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+      //     </fieldset>
 
-          <fieldset>
-            <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-          </fieldset>
+      //     <fieldset>
+      //       <label>Password:</label>
+      //       <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+      //     </fieldset>
 
-          <input type="submit" value="Login" />
-        </form>
+      //     <input type="submit" value="Login" />
+      //   </form>
 
-        <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+      //   <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+      // </div>
+
+<div className="formbg">
+        <div className="boxform">
+          <div className="formbox">
+            <form onSubmit={e => this.handleFormSubmit(e)}>          
+                <div className="inputsizes">
+                  <h3 className="bigtitle">Please, login to our site</h3>
+
+                  <label className="label">Username</label>
+                  <input 
+                  className="input" 
+                  name="username"
+                  type="text" 
+                  placeholder="Username" 
+                  value={this.state.username} 
+                  onChange={e => this.handleChange(e)}
+                  />
+
+                  <label className="label">Password</label>
+                  <input 
+                  className="input" 
+                  name="password"
+                  type="password" 
+                  placeholder="******" 
+                  value={this.state.password} 
+                  onChange={e => this.handleChange(e)}
+                  />
+
+                  <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+
+                  <input className="btn" type="submit" value="Login" />
+
+                  <div className="linklogin">
+                    <p>Don´t you have an account?</p>
+                    <Link to="/signup">Sign up</Link>
+                  </div>
+
+                </div>
+            </form>
+          </div>
+        </div>
       </div>
+
+
+
     )
   }
 }
