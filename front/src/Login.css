@@ -26,7 +26,7 @@ body {
 
 .boxform1 {
     width: 900px;
-    height: 650px;
+    height: 500px;
     box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
     background-color: white;
     border-radius: 6px;
@@ -80,4 +80,8 @@ body {
 
 .linklogin1 a:hover {
     color: #9013FE;
+}
+
+.badpass2 {
+    color: red;
 }

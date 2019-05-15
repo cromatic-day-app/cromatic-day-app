@@ -92,3 +92,7 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.badpass {
+    color: red;
+}
