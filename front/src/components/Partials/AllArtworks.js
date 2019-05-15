@@ -8,13 +8,12 @@ class AllArtworks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allArtworks: []
+      allArtworks: [],
     };
     this.ArtService = new ArtService();
   }
 
   showModal = (modalId) => {
-    console.log(modalId);
     const modal = document.getElementById(modalId);
     modal.className = "modal is-active";
   }
@@ -50,13 +49,13 @@ class AllArtworks extends React.Component {
         {
           this.state.allArtworks.map((artwork, idx) => {
             return (
-              <div className="column is-one-third">
+              <div className="column is-one-third" key={idx}>
                 <div className="card" key={idx}>
                   <div className="card-image">
                     <figure className="image is-4by3">
                       <img
                         src={artwork.primaryImageSmall}
-                        alt="Placeholder image"
+                        alt="img"
                       />
                     </figure>
                   </div>
@@ -74,7 +73,10 @@ class AllArtworks extends React.Component {
                       {/* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
                     </div>
                   </div>
-                  <button onClick={() => this.showModal("m" + idx)}>Details</button>
+                  <div>
+                    <button onClick={() => this.showModal("m" + idx)}>More details</button>
+                    <button onClick={this.props.addItem}>Add to cart</button>
+                  </div>
                 </div>
                 <ModalCard artwork={artwork} idx={idx}></ModalCard>
               </div>

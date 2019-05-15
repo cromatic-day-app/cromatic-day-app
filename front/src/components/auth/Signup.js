@@ -2,6 +2,7 @@ import React from "react";
 import AuthService from "./auth-service";
 import { Link, Redirect } from "react-router-dom";
 import "../../Signup.css";
+import Avatar from 'react-avatar-edit';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -9,22 +10,36 @@ class Signup extends React.Component {
     this.state = {
       username: "",
       password: "",
+      passwordConfirm: "",
+      email: "",
+      userPhoto: "",
+      preview: "",
+      error: "",
       saved: false
     };
     this.service = new AuthService();
   }
 
-  handleFormSubmit = e => {
-    e.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
+  onClose = () => {
+    this.setState({ userPhoto: null })
+  }
 
-    this.service
-      .signup(username, password)
+  onCrop = (preview) => {
+    this.setState({ preview })
+  }
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    const { username, password, passwordConfirm, email, preview } = this.state;
+
+    this.service.signup(username, password, passwordConfirm, email, preview)
       .then(() => {
         this.setState({
           username: "",
           password: "",
+          passwordConfirm: "",
+          email: "",
+          userPhoto: "",
           saved: true
         });
         // this.props.getUser(response.user)
@@ -33,7 +48,9 @@ class Signup extends React.Component {
         this.setState({
           username: username,
           password: password,
-          error: true
+          passwordConfirm: passwordConfirm,
+          email: email,
+          error: error.response.data.message
         });
       });
   };
@@ -45,8 +62,23 @@ class Signup extends React.Component {
     });
   };
 
+  handleFileUpload = (e) => {
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+    const uploadData = new FormData();
+
+    uploadData.append("userPhoto", e.target.files[0]);
+    this.service.handleUpload(uploadData)
+      .then(response => {
+        // console.log('response is: ', response);
+        this.setState({ userPhoto: response.secure_url });
+      })
+      .catch(err => {
+        console.log("Error while uploading the file: ", err);
+      });
+  }
+
   render() {
-    if (this.state.saved) return <Redirect to={"/login"} />;
+    if (this.state.saved) return <Redirect to={"/login"} />
     return (
       <div className="formbg">
         <div className="boxform">
@@ -56,7 +88,12 @@ class Signup extends React.Component {
                 <h3 className="bigtitle">
                   Welcome!, create your account next:
                 </h3>
-
+                 <Avatar
+                  width={300}
+                  height={300}
+                  onCrop={(preview) => this.onCrop(preview)}
+                  onClose={(preview) => this.onClose(preview)}
+                  />
                 <label className="label">Username</label>
                 <input className="input" type="text" placeholder="Username" />
 
@@ -72,7 +109,8 @@ class Signup extends React.Component {
 
                 <label className="label">Confirm your password</label>
                 <input className="input" type="password" placeholder="******" />
-                {/* <p>{this.state.error.length > 0 ? this.state.error : null}</p> */}
+                  
+                <p>{this.state.error.length > 0 ? this.state.error : null}</p>
 
                 <input className="btn" type="submit" value="Sign up" />
               </div>

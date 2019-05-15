@@ -26,20 +26,6 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <div className="home">
-          {/* <section>
-            <div className="cube">
-              <img src="/img/bighome1.png" />
-            </div>
-            <div className="boxbtn">
-              <Link to="/login">LOGIN</Link>
-              <Link to="/signup">SING UP</Link>
-            </div>
-          </section>
-
-          <div className="rectangle" />
-          <div className="cube2">
-            <img src="/img/Zebra.png" />
-          </div> */}
           <div className="halfHome">
             <section style={{marginRight:"100px"}}>
               <div className="cube">

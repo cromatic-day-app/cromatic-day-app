@@ -9,7 +9,7 @@ class MainNav extends React.Component {
     super(props);
     this.service = new AuthService();
     this.state = {
-      loggedInUser: null
+      loggedInUser: null,
     };
   }
 
@@ -18,15 +18,18 @@ class MainNav extends React.Component {
       <React.Fragment>
         {
           (this.props.user) ?
-            <div>
+            <nav className="nav-css">
               <div className='topHeader'>
-                <div >
-                  <img src="../img/logo.png" />
+                <div>
+                  <img src="../img/logo.png" alt="img" />
                 </div>
               </div>
               <div className='loggedInIcons'>
                 <Link to='/profile' className="icons"><i className="fas fa-user-circle" /></Link>
-                <i className="fas fa-shopping-cart icons" />
+                <i className="fas fa-shopping-cart cart" />
+                {
+                  (this.props.qty) > 0 ? <span className="qty">{this.props.qty}</span> : null
+                }
               </div>
               <div id="menu">
                 <div id='nav' className='columns'>
@@ -36,11 +39,11 @@ class MainNav extends React.Component {
                   <Link className="column link" to="/contacts">Contacts</Link>
                 </div>
               </div>
-            </div>
+            </nav>
             :
             <div className='topHeader2'>
               <div >
-                <img src="../img/logo.png" />
+                <img src="../img/logo.png" alt="img"/>
               </div>
             </div>
         }

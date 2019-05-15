@@ -1,9 +1,6 @@
 import React from 'react';
 
 class ModalCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   showModal = (modalId) => {
     console.log(modalId);
@@ -30,7 +27,7 @@ class ModalCard extends React.Component {
           <section className="modal-card-body">
             <img
               src={artwork.primaryImageSmall}
-              alt="Placeholder image"
+              alt="img"
             />
             <p>{artwork.date}</p>
             <p>{artwork.price}€</p>

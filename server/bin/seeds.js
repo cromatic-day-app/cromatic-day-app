@@ -22,14 +22,14 @@ function randomDate(start, end) {
     );
 }
 
-let genresArray = ["Architecture", "Van-Gogh", "Andy-Warhol", "Portraits", "Nature", "Jan-Van-Eyik"];
+let genresArray = ["Paul-Gauguin", "Van-Gogh", "Édouard-Manet", "Gustav-Klimt", "Edgar-Degas", "Jan-Van-Eyik"];
 
 genresArray.forEach(genre => {
     console.log(genre);
     Artwork.deleteMany().then(() => {
         request(
-                `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${genre}`
-            )
+            `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${genre}`
+        )
             .then(allData => {
                 data = JSON.parse(allData);
                 data.objectIDs.slice(0, 10).forEach(dataID => {
@@ -38,21 +38,21 @@ genresArray.forEach(genre => {
                     ).then(picture => {
                         picture = JSON.parse(picture);
                         // if (picture.isHighlight) {
-                        let { title, primaryImageSmall, artistDisplayName } = picture;
-                        newArtwork = new Artwork({
-                            title: title,
-                            primaryImageSmall: primaryImageSmall,
-                            artistDisplayName: artistDisplayName,
-                            price: Math.floor((Math.random() * (100 - 30)) + 30),
-                            date: randomDate(new Date(), new Date(2019, 4, 30)),
-                            genre: genre
-                        });
-                        newArtwork
-                            .save()
-                            .then(() => {
-                                console.log("ok");
-                            })
-                            .catch(err => console.log(err));
+                            let { title, primaryImageSmall, artistDisplayName } = picture;
+                            newArtwork = new Artwork({
+                                title: title,
+                                primaryImageSmall: primaryImageSmall,
+                                artistDisplayName: artistDisplayName,
+                                price: Math.floor((Math.random() * (100 - 30)) + 30),
+                                date: randomDate(new Date(), new Date(2019, 4, 30)),
+                                genre: genre
+                            });
+                            newArtwork
+                                .save()
+                                .then(() => {
+                                    console.log("ok");
+                                })
+                                .catch(err => console.log(err));
                         // }
                     });
                 });
