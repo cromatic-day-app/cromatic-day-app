@@ -33,15 +33,11 @@
     margin: -70px 80px 70px 0px;
     text-decoration-line: none;
     align-items: center;
-}
-
-.icons {
     font-size: 20px;
     color: #4a4a4a;
-    width: 40px;
 }
 
-img {
+.img-logo {
     display: flex;
     width: 200px;
     height: 100px;
@@ -60,13 +56,43 @@ img {
     color: #4a4a4a;
 }
 
+.qty-box {
+    border-radius: 50%;
+    background-color: #9013fe;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 85px;
+    right: 65px;
+}
+
 .qty {
-    color: #ac8fff;
+    color: white;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .cart {
     color: #4a4a4a;
     margin-right: 5px;
+}
+
+.prof-img {
+    height: 40px;
+    width: 40px;
+}
+
+.link-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-img {
+    margin-right: 20px;
+    height: 40px;
+    width: 40px;
 }

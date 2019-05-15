@@ -15,14 +15,88 @@ import Voucher from './components/Global/Voucher';
 
 
 class App extends React.Component {
-        constructor(props) {
-            super(props)
-            this.state = {
-                loggedInUser: null,
-                hide: false,
-                qty: 0
-            };
-            this.service = new AuthService();
+constructor(props) {
+    super(props)
+    this.state = {
+      loggedInUser: null,
+      hide: false,
+      qty: 0
+    };
+    this.service = new AuthService();
+  }
+
+  addItem = () => {
+    this.setState({
+      ...this.state,
+      qty: this.state.qty + 1
+    });
+    // this.props.handleTotal(this.props.price);
+  }
+
+  toggleHeader = () => {
+    const { hide } = this.state
+    this.setState({
+      ...this.state,
+      hide: !hide
+    })
+  }
+
+  fetchUser() {
+    if (this.state.loggedInUser === null) {
+      this.service.loggedin()
+        .then(response => {
+          this.setState({
+            loggedInUser: response
+          })
+        })
+        .catch(err => {
+          this.setState({
+            loggedInUser: false
+          })
+        })
+    }
+  }
+
+  getUser = (userObj) => {
+    this.setState({
+      loggedInUser: userObj
+    })
+  }
+
+  logout = () => {
+    this.service.logout()
+      .then(() => {
+        this.setState({
+          loggedInUser: null
+        });
+      })
+  }
+
+  render() {
+    this.fetchUser();
+    return (
+      <React.Fragment>
+        {
+          !this.state.hide
+            ? <MainNav user={this.state.loggedInUser} qty={this.state.qty} {...this.state.loggedInUser}></MainNav>
+            : <div>
+              <div className='topHeader'>
+                <div >
+                  <img className="img-logo" src="../img/logo.png" alt="img" />
+                </div>
+              </div>
+              <div className='loggedInIcons'>
+                <Link className="logout-link" to='/' onClick={() => this.logout()}>Logout</Link>
+                <i className="fas fa-shopping-cart cart" />
+                {
+                  (this.state.qty) > 0
+                    ? <div className="qty-box">
+                      <span className="qty">{this.state.qty}</span>
+                    </div>
+                    : null
+                }
+              </div>
+            </div>
         }
 
         addItem = () => {

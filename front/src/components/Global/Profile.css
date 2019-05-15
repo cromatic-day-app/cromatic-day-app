@@ -38,7 +38,7 @@ body {
   font-weight: bold;
 }
 
-.user-img {
+.user-img2 {
   height: 74px;
   width: 74px;
   margin-top: 30px;
@@ -73,7 +73,8 @@ body {
   height: 350px;
   width: 400px;
   justify-content: flex-start;
-  border: 1px solid silver;
+  border-radius: 6px;
+  box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
 }
 
 .books-box h2 {
