@@ -1,6 +1,7 @@
-import React from 'react';
-import AuthService from './auth-service';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import AuthService from "./auth-service";
+import { Link, Redirect } from "react-router-dom";
+import "../../Signup.css";
 import Avatar from 'react-avatar-edit';
 
 class Signup extends React.Component {
@@ -51,15 +52,15 @@ class Signup extends React.Component {
           email: email,
           error: error.response.data.message
         });
-      })
-  }
+      });
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     });
-  }
+  };
 
   handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -79,43 +80,49 @@ class Signup extends React.Component {
   render() {
     if (this.state.saved) return <Redirect to={"/login"} />
     return (
-      <div>
-        <h3>Welcome!, create your account next:</h3>
+      <div className="formbg">
+        <div className="boxform">
+          <div className="formbox">
+            <form onSubmit={e => this.handleFormSubmit(e)}>
+              <div className="inputsizes">
+                <h3 className="bigtitle">
+                  Welcome!, create your account next:
+                </h3>
+                 <Avatar
+                  width={300}
+                  height={300}
+                  onCrop={(preview) => this.onCrop(preview)}
+                  onClose={(preview) => this.onClose(preview)}
+                  />
+                <label className="label">Username</label>
+                <input className="input" type="text" placeholder="Username" />
 
-        <form onSubmit={(e) => this.handleFormSubmit(e)}>
-          <fieldset>
-            <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
+                <label className="label">Email</label>
+                <input
+                  className="input"
+                  type="email"
+                  placeholder="e.g. alexsmith@gmail.com"
+                />
 
-          <fieldset>
-            <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
+                <label className="label">Password</label>
+                <input className="input" type="password" placeholder="******" />
 
-          <fieldset>
-            <label>Confirm you password:</label>
-            <input type="password" name="passwordConfirm" value={this.state.passwordConfirm} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
+                <label className="label">Confirm your password</label>
+                <input className="input" type="password" placeholder="******" />
+                  
+                <p>{this.state.error.length > 0 ? this.state.error : null}</p>
 
-          <fieldset>
-            <label>Email:</label>
-            <input type="email" name="email" value={this.state.email} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
-
-          <Avatar
-            width={300}
-            height={300}
-            onCrop={(preview) => this.onCrop(preview)}
-            onClose={(preview) => this.onClose(preview)}
-          />
-
-          <input type="submit" value="Sign up" />
-        </form>
-
-        <p>{this.state.error.length > 0 ? this.state.error : null}</p>
+                <input className="btn" type="submit" value="Sign up" />
+              </div>
+            </form>
+            <div className="linklogin">
+              <p>Do you already have an account?</p>
+              <Link to="/login">Login</Link>
+            </div>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 

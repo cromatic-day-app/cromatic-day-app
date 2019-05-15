@@ -1,0 +1,88 @@
+.home {
+    display: flex;
+    /* justify-content: center; */
+    height: 80vh;
+}
+
+.halfHome {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.halfHome:nth-child(2) {
+    justify-content: flex-start;
+}
+
+.home .rectangle {
+    background-image: url("https://www.paintevents.ch/wp-content/uploads/2018/05/PopArt_Zebra_LaraJese_PainteventsZurich.jpg");
+    /* align-content: center; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 545px;
+    height: 496px;
+    transition: all 2s cubic-bezier(0.77, 0, 0.175, 1);
+    margin-bottom: 20px;
+    position: absolute;
+    transform: translateX(0);
+    /* display: none; */
+}
+
+.home .rectangle.hover {
+    /* transform: translateX(100px); */
+    transition: transform 1s;
+    transform: translateX(545px);
+}
+
+.home .boxbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px
+}
+
+.home a {
+    background-color: #ca8fff;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Montserrat";
+    margin: 90px 20px 70px 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 15px 35px;
+}
+
+.home a:hover {
+    color: white;
+}
+
+.home .cube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.home .cube img {
+    z-index: -1;
+}
+
+.home .boxbtn {
+    width: 300px;
+}
+
+.home .cube2 {
+    background-color: #daf5fc;
+    width: 545px;
+    height: 496px;
+    /* justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; */
+    position: absolute;
+    z-index: -1;
+}

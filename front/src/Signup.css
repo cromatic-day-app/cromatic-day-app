@@ -1,0 +1,80 @@
+body {
+    overflow: hidden;
+}
+
+.bigtitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.signtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.formbg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D7CFF4;
+    height: 85vh;
+    margin-top: 30px;
+}
+
+.boxform {
+    width: 900px;
+    height: 650px;
+    box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
+    background-color: white;
+    border-radius: 6px;
+}
+
+.formbox {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #ca8fff;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Montserrat";
+    margin-top: 30px;
+    padding: 15px 65px;
+    margin-bottom: 20px;
+}
+
+.inputsizes {
+    width: 400px;
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
+}
+
+.linklogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linklogin p {
+    margin-right: 10px;
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+.linklogin a {
+    font-family: "Montserrat";
+    color: #4A4A4A;
+}
+
+.linklogin a:hover {
+    color: #9013FE;
+}
