@@ -29,7 +29,7 @@ class Home extends React.Component {
           <div className="halfHome">
             <section style={{marginRight:"100px"}}>
               <div className="cube">
-                <img src="/img/bighome1.png" />
+                <img src="/img/bighome1.png"/>
               </div>
               <div className="boxbtn">
                 <Link to="/signup">SING UP</Link>
