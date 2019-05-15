@@ -31,6 +31,13 @@ class App extends React.Component {
     // this.props.handleTotal(this.props.price);
   }
 
+  removeItem = () => {
+    this.setState({
+      ...this.state,
+      qty: this.state.qty - 1
+    });
+  }
+
   toggleHeader = () => {
     const { hide } = this.state
     this.setState({
@@ -122,7 +129,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/profile' render={() =>
-            this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} /> :
+            this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} removeItem={() => this.removeItem()} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>

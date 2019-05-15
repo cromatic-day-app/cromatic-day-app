@@ -56,6 +56,9 @@ body {
 
 .profile-box h2 {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .username {
@@ -84,4 +87,32 @@ body {
 .line{
   width: 300px;
   border-bottom: 1px solid silver;
+}
+
+.booked-artworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.each-artwork {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.each-artwork h2 {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.each-artwork p {
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.txt {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
 }

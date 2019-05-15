@@ -9,6 +9,7 @@ class AllArtworks extends React.Component {
     super(props);
     this.state = {
       allArtworks: [],
+      booked: []
     };
     this.ArtService = new ArtService();
   }
@@ -22,6 +23,23 @@ class AllArtworks extends React.Component {
     const modal = document.getElementById(modalId);
     modal.className = "modal";
   }
+
+  joinArtworks = (artworkId) => {
+    console.log(artworkId)
+    this.props.addItem();
+    this.ArtService.userArtworks(artworkId)
+      .then(artwork => {
+        console.log(artwork)
+        this.setState({
+          ...this.state,
+          booked: artwork
+        })
+      })
+  }
+
+  // componentDidUpdate() {
+  //   this.joinArtworks();
+  // }
 
   componentWillReceiveProps(nextProps) {
     this.ArtService.allArtworks(nextProps.selectedGenre)
@@ -41,6 +59,7 @@ class AllArtworks extends React.Component {
           allArtworks: artworks
         })
       })
+      // this.joinArtworks(artworkId);
   }
 
   render() {
@@ -75,7 +94,7 @@ class AllArtworks extends React.Component {
                   </div>
                   <div>
                     <button onClick={() => this.showModal("m" + idx)}>More details</button>
-                    <button onClick={this.props.addItem}>Add to cart</button>
+                    <button onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
                   </div>
                 </div>
                 <ModalCard artwork={artwork} idx={idx}></ModalCard>
