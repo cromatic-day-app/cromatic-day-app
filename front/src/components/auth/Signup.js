@@ -9,8 +9,11 @@ class Signup extends React.Component {
     this.state = {
       username: "",
       password: "",
+      passwordConfirm: "",
+      email: "",
       userPhoto: "",
       preview: "",
+      error: "",
       saved: false
     };
     this.service = new AuthService();
@@ -26,13 +29,15 @@ class Signup extends React.Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    const { username, password, preview } = this.state;
+    const { username, password, passwordConfirm, email, preview } = this.state;
 
-    this.service.signup(username, password, preview)
+    this.service.signup(username, password, passwordConfirm, email, preview)
       .then(() => {
         this.setState({
           username: "",
           password: "",
+          passwordConfirm: "",
+          email: "",
           userPhoto: "",
           saved: true
         });
@@ -42,7 +47,9 @@ class Signup extends React.Component {
         this.setState({
           username: username,
           password: password,
-          error: true
+          passwordConfirm: passwordConfirm,
+          email: email,
+          error: error.response.data.message
         });
       })
   }
@@ -86,9 +93,19 @@ class Signup extends React.Component {
             <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
           </fieldset>
 
+          <fieldset>
+            <label>Confirm you password:</label>
+            <input type="password" name="passwordConfirm" value={this.state.passwordConfirm} onChange={(e) => this.handleChange(e)} />
+          </fieldset>
+
+          <fieldset>
+            <label>Email:</label>
+            <input type="email" name="email" value={this.state.email} onChange={(e) => this.handleChange(e)} />
+          </fieldset>
+
           <Avatar
-            width={150}
-            height={150}
+            width={300}
+            height={300}
             onCrop={(preview) => this.onCrop(preview)}
             onClose={(preview) => this.onClose(preview)}
           // src={this.state.userPhoto}
@@ -101,7 +118,7 @@ class Signup extends React.Component {
           <input type="submit" value="Sign up" />
         </form>
 
-        <h1>{this.state.error ? 'Error' : ''}</h1>
+        <p>{this.state.error.length > 0 ? this.state.error : null}</p>
       </div>
     )
   }

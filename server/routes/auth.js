@@ -22,16 +22,24 @@ const login = (req, user) => {
 }
 
 router.post("/signup", (req, res, next) => {
-  const { username, password, userPhoto } = req.body;
+  const { username, password, passwordConfirm, email, userPhoto } = req.body;
+
+  if (username === "" || password === "" || passwordConfirm === "" || email === "") {
+    res.status(500).json({message: 'Indicate username and password'});
+  }
+
+  if (passwordConfirm !== password) {
+    res.status(500).json({message: 'Your password is not correct'});
+  }
 
   if (!username || !password) {
-    next(new Error('You must provide valid credentials'));
+    res.status(500).json({message: 'You must provide valid credentials'});
   }
   
   User
     .findOne({ username })
     .then(foundUser => {
-      if (foundUser) throw new Error('Username already exists');
+      if (foundUser) res.status(500).json({message: 'Username already exists'});
 
       const salt = bcrypt.genSaltSync(10);
       const hashPass = bcrypt.hashSync(password, salt);
@@ -39,6 +47,7 @@ router.post("/signup", (req, res, next) => {
       return new User({
         username,
         password: hashPass,
+        email,
         userPhoto
       }).save();
     })
