@@ -1,6 +1,7 @@
-import React from 'react';
-import AuthService from './auth-service';
-import { Link, Redirect } from 'react-router-dom';
+import React from "react";
+import AuthService from "./auth-service";
+import { Link, Redirect } from "react-router-dom";
+import "../../Signup.css";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -13,12 +14,13 @@ class Signup extends React.Component {
     this.service = new AuthService();
   }
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = e => {
     e.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
 
-    this.service.signup(username, password)
+    this.service
+      .signup(username, password)
       .then(() => {
         this.setState({
           username: "",
@@ -33,39 +35,56 @@ class Signup extends React.Component {
           password: password,
           error: true
         });
-      })
-  }
+      });
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({
       [name]: value
     });
-  }
+  };
 
   render() {
-    if(this.state.saved) return <Redirect to={"/login"}/>
+    if (this.state.saved) return <Redirect to={"/login"} />;
     return (
-      <div>
-        <h3>Welcome!, create your account next:</h3>
+      <div className="formbg">
+        <div className="boxform">
+          <div className="formbox">
+            <form onSubmit={e => this.handleFormSubmit(e)}>
+              <div className="inputsizes">
+                <h3 className="bigtitle">
+                  Welcome!, create your account next:
+                </h3>
 
-        <form onSubmit={(e) => this.handleFormSubmit(e)}>
-          <fieldset>
-            <label>Username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
+                <label className="label">Username</label>
+                <input className="input" type="text" placeholder="Username" />
 
-          <fieldset>
-            <label>Password:</label>
-            <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
-          </fieldset>
+                <label className="label">Email</label>
+                <input
+                  className="input"
+                  type="email"
+                  placeholder="e.g. alexsmith@gmail.com"
+                />
 
-          <input type="submit" value="Sign up" />
-        </form>
+                <label className="label">Password</label>
+                <input className="input" type="password" placeholder="******" />
 
-        <h1>{this.state.error ? 'Error' : ''}</h1>
+                <label className="label">Confirm your password</label>
+                <input className="input" type="password" placeholder="******" />
+                {/* <p>{this.state.error.length > 0 ? this.state.error : null}</p> */}
+
+                <input className="btn" type="submit" value="Sign up" />
+              </div>
+            </form>
+            <div className="linklogin">
+              <p>Do you already have an account?</p>
+              <Link to="/login">Login</Link>
+            </div>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
