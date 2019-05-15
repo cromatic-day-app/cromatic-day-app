@@ -1,6 +1,8 @@
 import React from 'react';
 import AuthService from './auth-service';
 import { Link, Redirect } from "react-router-dom";
+import "../../Login.css";
+
 
 
 class Login extends React.Component {
@@ -64,12 +66,12 @@ class Login extends React.Component {
       //   <p>{this.state.error.length > 0 ? this.state.error : null}</p>
       // </div>
 
-<div className="formbg">
-        <div className="boxform">
-          <div className="formbox">
+<div className="formbg1">
+        <div className="boxform1">
+          <div className="formbox1">
             <form onSubmit={e => this.handleFormSubmit(e)}>          
-                <div className="inputsizes">
-                  <h3 className="bigtitle">Please, login to our site</h3>
+                <div className="inputsizes1">
+                  <h3 className="bigtitle1">Please, login to our site</h3>
 
                   <label className="label">Username</label>
                   <input 
@@ -93,9 +95,9 @@ class Login extends React.Component {
 
                   <p>{this.state.error.length > 0 ? this.state.error : null}</p>
 
-                  <input className="btn" type="submit" value="Login" />
+                  <input className="btn1" type="submit" value="Login" />
 
-                  <div className="linklogin">
+                  <div className="linklogin1">
                     <p>Don´t you have an account?</p>
                     <Link to="/signup">Sign up</Link>
                   </div>

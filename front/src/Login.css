@@ -2,35 +2,29 @@ body {
     overflow: hidden;
 }
 
-.bigtitle {
+.bigtitle1 {
     font-size: 20px;
     margin-bottom: 20px;
     margin-top: 50px;
 }
 
-.signtitle {
+.signtitle1 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.avatar {
-    margin-left: 125px;
-    margin-right: 55px;
-    margin-top: 60px;
-}
-
-.formbg {
+.formbg1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D7CFF4;
-    height: 85vh;
+    background-color: #DAF4FC;
+    height: 88vh;
     margin-top: 30px;
 }
 
-.boxform {
+.boxform1 {
     width: 900px;
     height: 650px;
     box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
@@ -38,13 +32,13 @@ body {
     border-radius: 6px;
 }
 
-.formbox {
+.formbox1 {
     display: flex;
     margin-top: 10px;
     flex-direction: column;
 }
 
-.btn {
+.btn1 {
     background-color: #ca8fff;
     color: white;
     font-size: 16px;
@@ -57,21 +51,21 @@ body {
     margin-bottom: 20px;
 }
 
-.inputsizes {
+.inputsizes1 {
     width: 400px;
-    /* margin-left: 250px; */
+    margin-left: 250px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
 
-.linklogin {
+.linklogin1 {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.linklogin p {
+.linklogin1 p {
     margin-right: 10px;
 }
 
@@ -79,16 +73,11 @@ body {
     margin-bottom: 20px;
 }
 
-.linklogin a {
+.linklogin1 a {
     font-family: "Montserrat";
     color: #4A4A4A;
 }
 
-.linklogin a:hover {
+.linklogin1 a:hover {
     color: #9013FE;
-}
-
-.photobox {
-    display: flex;
-    flex-direction: row;
 }
