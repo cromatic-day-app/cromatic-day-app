@@ -1,4 +1,5 @@
 import React from 'react';
+import "./ModalCard.css";
 
 class ModalCard extends React.Component {
 
@@ -20,7 +21,7 @@ class ModalCard extends React.Component {
       <div id={"m" + idx} className="modal">
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head">
+          <header className="modal-card-head modal-artwork-title">
             <p className="modal-card-title">{artwork.title}</p>
             <button className="delete" aria-label="close" onClick={() => this.closeModal("m" + idx)}></button>
           </header>

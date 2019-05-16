@@ -26,6 +26,8 @@ class AllArtworks extends React.Component {
 
   joinArtworks = (artworkId) => {
     console.log(artworkId)
+    console.log('antes - estoy en el agregar obra');
+      console.log(this.state);
     this.props.addItem();
     this.ArtService.userArtworks(artworkId)
       .then(artwork => {
@@ -36,10 +38,6 @@ class AllArtworks extends React.Component {
         })
       })
   }
-
-  // componentDidUpdate() {
-  //   this.joinArtworks();
-  // }
 
   componentWillReceiveProps(nextProps) {
     this.ArtService.allArtworks(nextProps.selectedGenre)
@@ -63,6 +61,8 @@ class AllArtworks extends React.Component {
   }
 
   render() {
+    console.log('después - estoy en el agregar obra');
+    console.log(this.state);
     return (
       <div id="cuadros" className="columns is-multiline is-8">
         {
@@ -80,7 +80,7 @@ class AllArtworks extends React.Component {
                   </div>
                   <div className="card-content">
                     <div className="media">
-                      <div className="media-content">
+                      <div className="media-content artwork-title">
                         <p className="title is-4">{artwork.title}</p>
                       </div>
                     </div>

@@ -2,14 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 import ArtService from "../art-service";
+import AuthService from '../auth/auth-service';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      deleted: false
+      deleted: false,
+      booked: this.props.booked
     }
     this.ArtService = new ArtService();
+    this.service = new AuthService();
   }
 
   deleteArtworks = (artworkId) => {
@@ -19,18 +22,24 @@ class Profile extends React.Component {
       .then(deletedArtwork => {
         console.log(deletedArtwork)
         this.setState({
-          ...this.state,
-          deleted: true
+          ...this.state
         })
       })
   }
 
   componentDidMount() {
-    this.props.toggleHeader()
+    this.service.loggedin()
+    .then(user => {
+      this.setState({
+        ...this.state,
+        booked: user.booked
+      })
+    })
+    this.props.toggleHeader();
   }
 
   componentWillUnmount() {
-    this.props.toggleHeader()
+    this.props.toggleHeader();
   }
 
   render() {
@@ -52,7 +61,7 @@ class Profile extends React.Component {
                 <h2>COMING SOON...</h2>
                 <div className="line"></div>
                 {
-                  this.props.booked.map((artwork, idx) => {
+                  this.state.booked.map((artwork, idx) => {
                     return (
                       <div className="all-artworks" key={idx}>
                         <div className="each-artwork" key={idx}>

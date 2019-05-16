@@ -3,3 +3,13 @@
     width: 100%;
     padding: 0px 200px;
 }
+
+.artwork-title {
+    width: 20px;
+}
+
+.artwork-title p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
