@@ -60,7 +60,8 @@ class AllArtworks extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <div id="cuadros" className="columns is-multiline is-8">
+      <React.Fragment>
+      <div id="cuadros" className="columns is-multiline is-5">
         {
           this.state.allArtworks.map((artwork, idx) => {
             return (
@@ -68,10 +69,7 @@ class AllArtworks extends React.Component {
                 <div className="card" key={idx}>
                   <div className="card-image">
                     <figure className="image is-4by3">
-                      <img
-                        src={artwork.primaryImageSmall}
-                        alt="img"
-                      />
+                      <img src={artwork.primaryImageSmall} alt="img"/>
                     </figure>
                   </div>
                   <div className="card-content">
@@ -88,9 +86,9 @@ class AllArtworks extends React.Component {
                       {/* <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> */}
                     </div>
                   </div>
-                  <div>
-                    <button onClick={() => this.showModal("m" + idx)}>More details</button>
-                    <button onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
+                  <div className="spacebtn">
+                    <button className="btn" onClick={() => this.showModal("m" + idx)}>More details</button>
+                    <button className="btn" onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
                   </div>
                 </div>
                 <ModalCard artwork={artwork} idx={idx} date={moment(artwork.date).format("dddd MMM Do YYYY")}/>
@@ -99,6 +97,7 @@ class AllArtworks extends React.Component {
           })
         }
       </div>
+      </React.Fragment>
     );
   }
 }

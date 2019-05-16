@@ -11,6 +11,7 @@ import Profile from './components/Global/Profile';
 import AboutUs from './components/Global/AboutUs';
 import MainNav from './components/Partials/MainNav';
 import Voucher from './components/Global/Voucher';
+import Contact from './components/Partials/Contact';
 
 class App extends React.Component {
   constructor(props) {
@@ -136,6 +137,10 @@ class App extends React.Component {
 
           <Route exact path='/voucher' render={() =>
             this.state.loggedInUser ? <Voucher getUser={this.getUser} /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/contact' render={() =>
+            this.state.loggedInUser ? <Contact getUser={this.getUser} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>
