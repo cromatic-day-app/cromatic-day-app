@@ -1,5 +1,33 @@
 #cuadros {
-    justify-content: flex-start;
-    width: 100%;
-    padding: 0px 200px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.img {
+    height: 100px;
+}
+
+.space {
+    margin-bottom: 200px;
+}
+
+.adjust {
+    text-align: center;
+}
+
+.btn {
+    background-color: #ca8fff;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Montserrat";
+    margin-top: 30px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+
+.spacebtn .btn {
+    margin-left: 6px;
 }

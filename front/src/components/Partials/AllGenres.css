@@ -1,7 +1,25 @@
 .collections {
-    margin: 20px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    margin: 70px 0;
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
 }
+
+.btncontent {
+    margin: 0 auto;
+    width: 1380px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.btncontent img {
+    width: 400px;
+}
+
+
+/* img {
+    height: 200%;
+    width: 200%;
+} */

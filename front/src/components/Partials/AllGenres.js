@@ -1,12 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ArtService from '../art-service';
-import AllArtworks from './AllArtworks';
+import React from "react";
+import { Link } from "react-router-dom";
+import ArtService from "../art-service";
+import AllArtworks from "./AllArtworks";
 import "./AllGenres.css";
 import "bulma/css/bulma.css";
-
-
-
 
 class AllGenres extends React.Component {
   constructor(props) {
@@ -14,7 +11,7 @@ class AllGenres extends React.Component {
     this.state = {
       allGenres: [],
       genreSelected: undefined
-    }
+    };
     this.ArtService = new ArtService();
   }
 
@@ -25,70 +22,74 @@ class AllGenres extends React.Component {
       }
     }
     return null;
-  }
+  };
 
-  onlyOneGenre = (genresArray) => {
+  onlyOneGenre = genresArray => {
     var tempArray = [];
     genresArray.forEach(element => {
-
       if (tempArray.length === 0) {
-        tempArray.push(element)
-
+        tempArray.push(element);
       }
-      let obj = this.findOjectBykey(tempArray, 'genre', element.genre);
+      let obj = this.findOjectBykey(tempArray, "genre", element.genre);
 
       if (obj == null) {
         tempArray.push(element);
       }
     });
     return tempArray;
-  }
+  };
 
-  showGenreArtworks = (pictureGenre) => {
-
+  showGenreArtworks = pictureGenre => {
     if (this.state.display === "none") {
       this.setState({
         genreSelected: pictureGenre
-
-      })
+      });
     } else {
       this.setState({
         genreSelected: pictureGenre
-      })
+      });
     }
-  }
+  };
 
   componentDidMount() {
-    this.ArtService.allGenres()
-      .then(artworks => {
-        this.setState({
-          ...this.state,
-          allGenres: artworks
-        })
-      })
+    this.ArtService.allGenres().then(artworks => {
+      this.setState({
+        ...this.state,
+        allGenres: artworks
+      });
+    });
   }
 
   render() {
     return (
       <div>
         <div className="collections">
-          {
-            this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
-              return (
-                <div key={idx}>
-                  <button onClick={() => this.showGenreArtworks(picture.genre)}><Link to={`/events/${picture.genre}`}>{picture.genre}</Link></button>
-
-                </div>
-              )
-            })
-          }
+        <div className="btncontent">
+          {this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
+            return (
+              // <div  style={{backgroundColor:'red'}}>
+                <a  key={idx} to={`/events/${picture.genre}`}>
+                  {" "}
+                  <img
+                    className=""
+                    src ={`/img/${picture.genre}.png`}
+                    alt="button"
+                    onClick={() => this.showGenreArtworks(picture.genre)}
+                  />
+                </a>
+              // </div>
+            );
+          })}
+          </div>
         </div>
-        {
-          this.state.genreSelected !== undefined &&
-          <AllArtworks selectedGenre={this.state.genreSelected} addItem={this.props.addItem}></AllArtworks>
-        }
+        {this.state.genreSelected !== undefined && (
+          <AllArtworks
+            selectedGenre={this.state.genreSelected}
+            addItem={this.props.addItem}
+          />
+        )}
       </div>
-    )
+    );
   }
 }
 

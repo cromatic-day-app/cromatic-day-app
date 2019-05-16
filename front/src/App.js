@@ -11,6 +11,7 @@ import Profile from './components/Global/Profile';
 import AboutUs from './components/Global/AboutUs';
 import ModalCard from './components/Partials/ModalCard';
 import MainNav from './components/Partials/MainNav';
+import Contact from './components/Partials/Contact';
 
 class App extends React.Component {
   constructor(props) {
@@ -131,6 +132,8 @@ class App extends React.Component {
           <Route exact path='/profile' render={() =>
             this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} removeItem={() => this.removeItem()} /> :
               <Redirect to={'/login'} />} />
+
+          <Route exact path='/contact' component={Contact} />
 
         </Switch>
       </React.Fragment>
