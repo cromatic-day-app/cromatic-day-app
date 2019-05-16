@@ -1,5 +1,6 @@
 import React from 'react';
 import "./ModalCard.css";
+import moment from "moment";
 
 class ModalCard extends React.Component {
 
@@ -30,7 +31,7 @@ class ModalCard extends React.Component {
               src={artwork.primaryImageSmall}
               alt="img"
             />
-            <p>{artwork.date}</p>
+            <p>{this.props.date}</p>
             <p>{artwork.price}€</p>
           </section>
           <footer className="modal-card-foot">

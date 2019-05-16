@@ -3,6 +3,7 @@ import ArtService from "../art-service";
 import "bulma/css/bulma.css";
 import "./AllArtworks.css";
 import ModalCard from './ModalCard';
+import moment from "moment";
 
 class AllArtworks extends React.Component {
   constructor(props) {
@@ -92,7 +93,7 @@ class AllArtworks extends React.Component {
                     <button onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
                   </div>
                 </div>
-                <ModalCard artwork={artwork} idx={idx}></ModalCard>
+                <ModalCard artwork={artwork} idx={idx} date={moment(artwork.date).format("DD/MM/YYYY")}/>
               </div>
             );
           })
@@ -103,3 +104,4 @@ class AllArtworks extends React.Component {
 }
 
 export default AllArtworks;
+
