@@ -9,8 +9,8 @@ import Home from './components/Global/Home';
 import Events from './components/Global/Events';
 import Profile from './components/Global/Profile';
 import AboutUs from './components/Global/AboutUs';
-import ModalCard from './components/Partials/ModalCard';
 import MainNav from './components/Partials/MainNav';
+import Voucher from './components/Global/Voucher';
 import Contact from './components/Partials/Contact';
 
 class App extends React.Component {
@@ -87,8 +87,10 @@ class App extends React.Component {
             ? <MainNav user={this.state.loggedInUser} qty={this.state.qty} {...this.state.loggedInUser}></MainNav>
             : <div>
               <div className='topHeader'>
-                <div >
-                  <img className="img-logo" src="../img/logo.png" alt="img" />
+                <div>
+                  <Link to="/">
+                    <img className="img-logo" src="../img/logo.png" alt="img" />
+                  </Link>
                 </div>
               </div>
               <div className='loggedInIcons'>
@@ -105,7 +107,7 @@ class App extends React.Component {
             </div>
         }
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' render={() => <Home user={this.state.loggedInUser} />} />
 
           <Route exact path='/about-us' component={AboutUs} />
 
@@ -125,15 +127,21 @@ class App extends React.Component {
             this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()} /> :
               <Redirect to={'/login'} />} />
 
-          <Route exact path='/events/:genre/:artworkId' render={() =>
+          {/* <Route exact path='/events/:genre/:artworkId' render={() =>
             this.state.loggedInUser ? <ModalCard /> :
-              <Redirect to={'/login'} />} />
+              <Redirect to={'/login'} />} /> */}
 
           <Route exact path='/profile' render={() =>
             this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} removeItem={() => this.removeItem()} /> :
               <Redirect to={'/login'} />} />
 
-          <Route exact path='/contact' component={Contact} />
+          <Route exact path='/voucher' render={() =>
+            this.state.loggedInUser ? <Voucher getUser={this.getUser} /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/contact' render={() =>
+            this.state.loggedInUser ? <Contact getUser={this.getUser} /> :
+              <Redirect to={'/login'} />} />
 
         </Switch>
       </React.Fragment>

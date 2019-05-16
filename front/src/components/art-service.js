@@ -39,9 +39,15 @@ class ArtService {
             .catch(err => console.log(err));
     };
 
-    deleteArtwork(id) {
+    newVoucher(title, receiver, creator, message, userPhoto) {
         return this.service
-            .delete(`/delete/${id}`)
+            .post('/new', { title, receiver, creator, message, userPhoto })
+            .catch(error => console.log(error))
+    }
+
+    deleteArtwork(artworkId) {
+        return this.service
+            .delete(`/delete/${artworkId}`)
             .then(response => response.data)
             .catch(error => console.log(error))
     }

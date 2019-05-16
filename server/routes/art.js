@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Artwork = require("../models/Artwork");
-const User = require("../models/User")
+const User = require("../models/User");
+const Voucher = require("../models/Voucher");
 
 router.get('/allGenres', (req, res, next) => {
   Artwork
@@ -33,8 +34,8 @@ router.get('/:genre/:id', (req, res, next) => {
 })
 
 router.post('/joinArtworks', (req, res, next) => {
-  let id = req.user._id
-  let artworkId = req.body.artworkId
+  let id = req.user._id;
+  let artworkId = req.body.artworkId;
 
   User
     .findByIdAndUpdate(id, { $push: { 'booked': artworkId } }, { new: true })
@@ -46,22 +47,32 @@ router.post('/joinArtworks', (req, res, next) => {
     .catch(err => res.status(500).json(err))
 })
 
-// router.delete('/:artworkId', (req, res, next) => {
-//   Movie
-//     .findByIdAndDelete(req.params.artworkId)
-//     .then(deletedArtwork => res.status(200).json("ok"))
-// });
+router.post('/new', (req, res, next) => {
 
-router.delete('/delete', (req, res, next) => {
-  let id = req.user._id
-  let artworkId = req.body.artworkId;
-  console.log(req.body)
+  Voucher
+    .create({
+      title: req.body.title,
+      receiver: req.body.receiver,
+      creator: req.body.creator,
+      message: req.body.message,
+      userPhoto: req.body.userPhoto,
+    })
+    .then((newVoucher) => {
+      Voucher
+        .findById(newVoucher._id)
+        .then(theNewVoucher => res.json(theNewVoucher))
+    })
+    .catch(err => res.json(err))
+});
+
+router.delete('/delete/:artworkId', (req, res, next) => {
+  let id = req.user._id;
+  let artworkId = req.params.artworkId;
+
   User
-    .findById(id)
+    .findByIdAndUpdate(id, { $pull: { 'booked': artworkId } }, { new: true })
     .then((user) => {
-      user.booked = user.booked.filter((artwork) => {
-        artwork._id !== artworkId
-      })
+      console.log(user)
     })
     .catch((err) => {
       console.log("deleted failed");

@@ -3,6 +3,7 @@ import ArtService from "../art-service";
 import "bulma/css/bulma.css";
 import "./AllArtworks.css";
 import ModalCard from './ModalCard';
+import moment from "moment";
 
 class AllArtworks extends React.Component {
   constructor(props) {
@@ -25,21 +26,15 @@ class AllArtworks extends React.Component {
   }
 
   joinArtworks = (artworkId) => {
-    console.log(artworkId)
     this.props.addItem();
     this.ArtService.userArtworks(artworkId)
       .then(artwork => {
-        console.log(artwork)
         this.setState({
           ...this.state,
           booked: artwork
         })
       })
   }
-
-  // componentDidUpdate() {
-  //   this.joinArtworks();
-  // }
 
   componentWillReceiveProps(nextProps) {
     this.ArtService.allArtworks(nextProps.selectedGenre)
@@ -63,6 +58,7 @@ class AllArtworks extends React.Component {
   }
 
   render() {
+    // console.log(this.state);
     return (
       <React.Fragment>
       <div id="cuadros" className="columns is-multiline is-5">
@@ -78,7 +74,7 @@ class AllArtworks extends React.Component {
                   </div>
                   <div className="card-content">
                     <div className="media">
-                      <div className="media-content adjust">
+                      <div className="media-content artwork-title">
                         <p className="title is-4">{artwork.title}</p>
                       </div>
                     </div>
@@ -95,7 +91,7 @@ class AllArtworks extends React.Component {
                     <button className="btn" onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
                   </div>
                 </div>
-                <ModalCard artwork={artwork} idx={idx}></ModalCard>
+                <ModalCard artwork={artwork} idx={idx} date={moment(artwork.date).format("dddd MMM Do YYYY")}/>
               </div>
             );
           })
@@ -107,3 +103,4 @@ class AllArtworks extends React.Component {
 }
 
 export default AllArtworks;
+

@@ -3,6 +3,15 @@
     max-width: 1400px;
 }
 
+.artwork-title {
+    width: 20px;
+}
+
+.artwork-title p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
 .img {
     height: 100px;
 }

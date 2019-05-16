@@ -2,35 +2,56 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 import ArtService from "../art-service";
+import AuthService from '../auth/auth-service';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      deleted: false
+      deleted: false,
+      booked: this.props.booked
     }
     this.ArtService = new ArtService();
+    this.service = new AuthService();
   }
 
   deleteArtworks = (artworkId) => {
-    console.log(artworkId)
     this.props.removeItem();
     this.ArtService.deleteArtwork(artworkId)
       .then(deletedArtwork => {
-        console.log(deletedArtwork)
+        deletedArtwork = deletedArtwork.filter((artwork) => {
+          return (artwork !== artworkId)
+        })
         this.setState({
           ...this.state,
-          deleted: true
+          booked: deletedArtwork
         })
       })
   }
 
   componentDidMount() {
-    this.props.toggleHeader()
+    this.service.loggedin()
+      .then(user => {
+        this.setState({
+          ...this.state,
+          booked: user.booked
+        })
+      })
+    this.props.toggleHeader();
+  }
+
+  componentWillUpdate() {
+    this.service.loggedin()
+      .then(user => {
+        this.setState({
+          ...this.state,
+          booked: user.booked
+        })
+      })
   }
 
   componentWillUnmount() {
-    this.props.toggleHeader()
+    this.props.toggleHeader();
   }
 
   render() {
@@ -45,14 +66,14 @@ class Profile extends React.Component {
           </Link>
           </div>
           <div className="profile-box">
-            <img className="user-img2" src={this.props.userPhoto} />
+            <img className="user-img2" src={this.props.userPhoto} alt="img"/>
             <h2 className="username">{this.props.username}</h2>
             <div className="booked-artworks">
               <div className="books-box">
                 <h2>COMING SOON...</h2>
                 <div className="line"></div>
                 {
-                  this.props.booked.map((artwork, idx) => {
+                  this.state.booked.map((artwork, idx) => {
                     return (
                       <div className="all-artworks" key={idx}>
                         <div className="each-artwork" key={idx}>

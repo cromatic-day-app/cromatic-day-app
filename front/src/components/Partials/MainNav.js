@@ -21,12 +21,14 @@ class MainNav extends React.Component {
             <nav className="nav-css">
               <div className='topHeader'>
                 <div>
-                  <img className="img-logo" src="../img/logo.png" alt="img" />
+                  <Link to="/">
+                    <img className="img-logo" src="../img/logo.png" alt="img" />
+                  </Link>
                 </div>
               </div>
               <div className='loggedInIcons'>
                 <Link to='/profile' className="link-img">
-                  <img className="user-img" src={this.props.userPhoto} />
+                  <img className="user-img" src={this.props.userPhoto} alt="img"/>
                 </Link>
                 <i className="fas fa-shopping-cart cart" />
                 {
@@ -48,8 +50,10 @@ class MainNav extends React.Component {
             </nav>
             :
             <div className='topHeader2'>
-              <div >
-                <img className="img-logo" src="../img/logo.png" alt="img" />
+              <div>
+                <Link to="/">
+                  <img className="img-logo" src="../img/logo.png" alt="img" />
+                </Link>
               </div>
             </div>
         }
