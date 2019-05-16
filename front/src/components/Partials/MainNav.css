@@ -20,9 +20,11 @@
 }
 
 #menu {
-    width: 100%;
-    display: flex;
+    width: 600px;
+    margin-left: 600px;
     justify-content: center;
+    /* font-size: 20px; */
+    font-size: 24px;
 }
 
 .loggedInIcons {
@@ -53,7 +55,7 @@
 
 .link:hover {
     text-decoration: none;
-    color: #4a4a4a;
+    color: #9013fe;
 }
 
 .qty-box {

@@ -40,7 +40,7 @@ class MainNav extends React.Component {
                 }
               </div>
               <div id="menu">
-                <div id='nav' className='columns'>
+                <div id='nav' className="columns">
                   <Link className="column link" to="/about-us">About us</Link>
                   <Link className="column link" to="/events">Events</Link>
                   <Link className="column link" to="/voucher">Voucher</Link>
