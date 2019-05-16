@@ -11,7 +11,7 @@ import Profile from './components/Global/Profile';
 import AboutUs from './components/Global/AboutUs';
 import MainNav from './components/Partials/MainNav';
 import Voucher from './components/Global/Voucher';
-import Contact from './components/Partials/Contact';
+import Contact from './components/Global/Contact';
 
 class App extends React.Component {
   constructor(props) {

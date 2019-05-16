@@ -30,8 +30,8 @@ class ModalCard extends React.Component {
               src={artwork.primaryImageSmall}
               alt="img"
             />
-            <p>{this.props.date}</p>
-            <p>{artwork.price}€</p>
+            <p>DATE: {this.props.date}</p>
+            <p>PRICE: {artwork.price}€</p>
           </section>
           <footer className="modal-card-foot">
             <button onClick={() => this.closeModal("m" + idx)} className="button">Cancel</button>

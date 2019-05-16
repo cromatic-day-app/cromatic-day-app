@@ -5,12 +5,14 @@
 
 .artwork-title {
     width: 20px;
+    text-align: center;
 }
 
 .artwork-title p {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
 
 .img {
     height: 100px;
@@ -18,10 +20,6 @@
 
 .space {
     margin-bottom: 200px;
-}
-
-.adjust {
-    text-align: center;
 }
 
 .btn {
