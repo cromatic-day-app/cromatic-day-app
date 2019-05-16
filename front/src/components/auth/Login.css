@@ -81,3 +81,7 @@ body {
 .linklogin1 a:hover {
     color: #9013FE;
 }
+
+.badpass1 {
+    color: red;
+}

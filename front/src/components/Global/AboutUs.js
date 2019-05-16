@@ -50,14 +50,9 @@ class AboutUs extends React.Component {
             <img src="/img/abouttitle.png" />
           </div>
           <div className="text">
-            <p>
-              lorem ipsur since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktm
-            </p>
+            <p>We are a group painting event organization company.We are based on a new concept of leisure for adult audiences. We detected that there is a lack of fun activities related to art and that is where our concept comes from.
+You can reserve a work that you like from different genres, buy it and be able to go paint with whoever you want in a studio with teachers. All this enjoying a wine or a drink to have a great time!
+</p>
           </div>
         </div>
 
@@ -78,25 +73,21 @@ class AboutUs extends React.Component {
             </h3>
 
             <h3 className="titles column is-one-third">Certificate teachers</h3>
-            <h3 className="titles column is-one-third">Certificate teachers</h3>
+            <h3 className="titles column is-one-third">Materials</h3>
 
             <p className="textsection column is-one-third">
-              Lorem ipsur since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not
+              
+Gather your friends for the occasion that you want and enjoy a spectacular evening
             </p>
 
             <p className="textsection column is-one-third">
-              Lorem ipsur since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not
+            Certified teachers that will help you learn all the pictorial techniques you need to get your works of art
+
             </p>
 
             <p className="textsection column is-one-third">
-              Lorem ipsur since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not
-            </p>
+            We take care of everything!. The materials you need are included per person. Each one will have your own easel, brushes, palette, paintings ...
+We make it simple for you.</p>
 
           </div>
         </div>

@@ -5,13 +5,19 @@
 } */
 
 .modal-artwork-title p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  line-height: 1.5em;
-  height: 2.6em;
-  overflow: hidden;
-  width: 300px;
-  font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.5em;
+    height: 2.6em;
+    overflow: hidden;
+    width: 300px;
+    font-weight: bold;
+}
+
+.modal-card-body P {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ca8fff;
 }
