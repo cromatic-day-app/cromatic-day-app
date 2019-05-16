@@ -11,6 +11,10 @@ const userSchema = new Schema({
     booked: [{
         type: Schema.Types.ObjectId,
         ref: "Artwork"
+    }],
+    vouchers: [{
+        type: Schema.Types.ObjectId,
+        ref: "Voucher"
     }]
 }, {
     timestamps: {

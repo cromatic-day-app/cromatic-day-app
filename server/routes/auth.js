@@ -71,6 +71,7 @@ router.get("/currentuser", (req, res, next) => {
 
     User.findById(req.user._id)
     .populate("booked")
+    .populate("vouchers")
     .then((populatedUser) => {
       res.status(200).json(populatedUser);
     })

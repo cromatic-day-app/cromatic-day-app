@@ -58,9 +58,16 @@ router.post('/new', (req, res, next) => {
       userPhoto: req.body.userPhoto,
     })
     .then((newVoucher) => {
-      Voucher
-        .findById(newVoucher._id)
-        .then(theNewVoucher => res.json(theNewVoucher))
+      console.log(newVoucher)
+      let id = req.user._id;
+      User
+        .findByIdAndUpdate(id, {$addToSet: {vouchers: newVoucher }}, {new: true})
+        .populate("vouchers")
+        .then(user => {
+          res.json(user)
+          console.log("Voucher populated:", user)
+        })
+        .catch(err => res.status(500).json(err))
     })
     .catch(err => res.json(err))
 });
@@ -72,7 +79,7 @@ router.delete('/delete/:artworkId', (req, res, next) => {
   User
     .findByIdAndUpdate(id, { $pull: { 'booked': artworkId } }, { new: true })
     .then((user) => {
-      console.log(user)
+      res.json(user)
     })
     .catch((err) => {
       console.log("deleted failed");
