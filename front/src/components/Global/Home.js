@@ -11,12 +11,12 @@ class Home extends React.Component {
   // }
 
   componentDidMount() {
-    document.querySelector(".rectangle").onmouseover = function() {
+    document.querySelector(".rectangle").onmouseover = function () {
       var that = this;
 
       that.className = "rectangle hover";
 
-      document.querySelector(".home section").onmouseout = function() {
+      document.querySelector(".home section").onmouseout = function () {
         that.className = "rectangle";
       };
     };
@@ -24,26 +24,45 @@ class Home extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className="home">
-          <div className="halfHome">
-            <section style={{marginRight:"100px"}}>
-              <div className="cube">
-                <img src="/img/bighome1.png" />
+      (!this.props.user)
+        ? <React.Fragment>
+          <div className="home">
+            <div className="halfHome">
+              <section style={{ marginRight: "100px" }}>
+                <div className="cube">
+                  <img src="/img/bighome1.png" alt="img"/>
+                </div>
+                <div className="boxbtn">
+                  <Link to="/signup">SING UP</Link>
+                  <Link to="/login">LOGIN</Link>
+                </div>
+              </section>
+              <div className="rectangle" />
+            </div>
+            <div className="halfHome">
+              <div className="cube2">
               </div>
-              <div className="boxbtn">
-                <Link to="/signup">SING UP</Link>
-                <Link to="/login">LOGIN</Link>
-              </div>
-            </section>
-            <div className="rectangle" />
-          </div>
-          <div className="halfHome">
-            <div className="cube2">
             </div>
           </div>
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+        : <React.Fragment>
+          <div className="home">
+            <div className="halfHome">
+              <section style={{ marginRight: "100px" }}>
+                <div className="cube">
+                  {/* <Link to="/events"> */}
+                    <img src="/img/bighome1.png" alt="img"/>
+                  {/* </Link> */}
+                </div>
+              </section>
+              <div className="rectangle" />
+            </div>
+            <div className="halfHome">
+              <div className="cube2">
+              </div>
+            </div>
+          </div>
+        </React.Fragment>
     );
   }
 }

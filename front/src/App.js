@@ -86,8 +86,10 @@ class App extends React.Component {
             ? <MainNav user={this.state.loggedInUser} qty={this.state.qty} {...this.state.loggedInUser}></MainNav>
             : <div>
               <div className='topHeader'>
-                <div >
-                  <img className="img-logo" src="../img/logo.png" alt="img" />
+                <div>
+                  <Link to="/">
+                    <img className="img-logo" src="../img/logo.png" alt="img" />
+                  </Link>
                 </div>
               </div>
               <div className='loggedInIcons'>
@@ -104,7 +106,7 @@ class App extends React.Component {
             </div>
         }
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' render={() => <Home user={this.state.loggedInUser} />} />
 
           <Route exact path='/about-us' component={AboutUs} />
 

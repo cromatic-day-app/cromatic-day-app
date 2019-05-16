@@ -39,9 +39,9 @@ class ArtService {
             .catch(err => console.log(err));
     };
 
-    deleteArtwork(id) {
+    deleteArtwork(artworkId) {
         return this.service
-            .delete(`/delete/${id}`)
+            .delete(`/delete/${artworkId}`)
             .then(response => response.data)
             .catch(error => console.log(error))
     }

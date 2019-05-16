@@ -33,8 +33,8 @@ router.get('/:genre/:id', (req, res, next) => {
 })
 
 router.post('/joinArtworks', (req, res, next) => {
-  let id = req.user._id
-  let artworkId = req.body.artworkId
+  let id = req.user._id;
+  let artworkId = req.body.artworkId;
 
   User
     .findByIdAndUpdate(id, { $push: { 'booked': artworkId } }, { new: true })
@@ -46,22 +46,14 @@ router.post('/joinArtworks', (req, res, next) => {
     .catch(err => res.status(500).json(err))
 })
 
-// router.delete('/:artworkId', (req, res, next) => {
-//   Movie
-//     .findByIdAndDelete(req.params.artworkId)
-//     .then(deletedArtwork => res.status(200).json("ok"))
-// });
+router.delete('/delete/:artworkId', (req, res, next) => {
+  let id = req.user._id;
+  let artworkId = req.params.artworkId;
 
-router.delete('/delete', (req, res, next) => {
-  let id = req.user._id
-  let artworkId = req.body.artworkId;
-  console.log(req.body)
   User
-    .findById(id)
+    .findByIdAndUpdate(id, { $pull: { 'booked': artworkId } }, { new: true })
     .then((user) => {
-      user.booked = user.booked.filter((artwork) => {
-        artwork._id !== artworkId
-      })
+      console.log(user)
     })
     .catch((err) => {
       console.log("deleted failed");

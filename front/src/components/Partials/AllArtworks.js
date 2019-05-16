@@ -25,13 +25,9 @@ class AllArtworks extends React.Component {
   }
 
   joinArtworks = (artworkId) => {
-    console.log(artworkId)
-    console.log('antes - estoy en el agregar obra');
-      console.log(this.state);
     this.props.addItem();
     this.ArtService.userArtworks(artworkId)
       .then(artwork => {
-        console.log(artwork)
         this.setState({
           ...this.state,
           booked: artwork
@@ -61,8 +57,7 @@ class AllArtworks extends React.Component {
   }
 
   render() {
-    console.log('después - estoy en el agregar obra');
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div id="cuadros" className="columns is-multiline is-8">
         {

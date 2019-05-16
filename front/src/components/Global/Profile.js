@@ -16,26 +16,38 @@ class Profile extends React.Component {
   }
 
   deleteArtworks = (artworkId) => {
-    console.log(artworkId)
     this.props.removeItem();
     this.ArtService.deleteArtwork(artworkId)
       .then(deletedArtwork => {
-        console.log(deletedArtwork)
+        deletedArtwork = deletedArtwork.filter((artwork) => {
+          return (artwork !== artworkId)
+        })
         this.setState({
-          ...this.state
+          ...this.state,
+          booked: deletedArtwork
         })
       })
   }
 
   componentDidMount() {
     this.service.loggedin()
-    .then(user => {
-      this.setState({
-        ...this.state,
-        booked: user.booked
+      .then(user => {
+        this.setState({
+          ...this.state,
+          booked: user.booked
+        })
       })
-    })
     this.props.toggleHeader();
+  }
+
+  componentWillUpdate() {
+    this.service.loggedin()
+      .then(user => {
+        this.setState({
+          ...this.state,
+          booked: user.booked
+        })
+      })
   }
 
   componentWillUnmount() {
@@ -54,7 +66,7 @@ class Profile extends React.Component {
           </Link>
           </div>
           <div className="profile-box">
-            <img className="user-img2" src={this.props.userPhoto} />
+            <img className="user-img2" src={this.props.userPhoto} alt="img"/>
             <h2 className="username">{this.props.username}</h2>
             <div className="booked-artworks">
               <div className="books-box">
