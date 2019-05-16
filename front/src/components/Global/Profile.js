@@ -9,7 +9,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       deleted: false,
-      booked: this.props.booked
+      booked: this.props.booked,
+      vouchers: this.props.vouchers
     }
     this.ArtService = new ArtService();
     this.service = new AuthService();
@@ -34,7 +35,8 @@ class Profile extends React.Component {
       .then(user => {
         this.setState({
           ...this.state,
-          booked: user.booked
+          booked: user.booked,
+          vouchers: user.vouchers
         })
       })
     this.props.toggleHeader();
@@ -45,7 +47,8 @@ class Profile extends React.Component {
       .then(user => {
         this.setState({
           ...this.state,
-          booked: user.booked
+          booked: user.booked,
+          vouchers: user.vouchers
         })
       })
   }
@@ -55,7 +58,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
     return (
       <div className="profile">
         <div className="box-container">
@@ -66,7 +68,7 @@ class Profile extends React.Component {
           </Link>
           </div>
           <div className="profile-box">
-            <img className="user-img2" src={this.props.userPhoto} alt="img"/>
+            <img className="user-img2" src={this.props.userPhoto} alt="img" />
             <h2 className="username">{this.props.username}</h2>
             <div className="booked-artworks">
               <div className="books-box">
@@ -90,11 +92,29 @@ class Profile extends React.Component {
                     )
                   })
                 }
+                {
+                  this.state.vouchers.map((voucher, idx) => {
+                    return (
+                      <div className="all-artworks" key={idx}>
+                        <div className="each-artwork" key={idx}>
+                          <div className="txt-artwork">
+                            <h2>{voucher.title}</h2>
+                            <p>{voucher.creator}</p>
+                          </div>
+                          <div>
+                            <button>Delete</button>
+                          </div>
+                        </div>
+                        <div className="line"></div>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 }

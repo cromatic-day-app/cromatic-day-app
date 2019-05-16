@@ -42,6 +42,7 @@ class ArtService {
     newVoucher(title, receiver, creator, message, userPhoto) {
         return this.service
             .post('/new', { title, receiver, creator, message, userPhoto })
+            .then(response => response.data)
             .catch(error => console.log(error))
     }
 

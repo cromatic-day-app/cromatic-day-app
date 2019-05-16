@@ -58,7 +58,6 @@ class AllArtworks extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <React.Fragment>
       <div id="cuadros" className="columns is-multiline is-5">
