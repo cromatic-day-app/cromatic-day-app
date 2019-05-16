@@ -9,8 +9,8 @@ import Home from './components/Global/Home';
 import Events from './components/Global/Events';
 import Profile from './components/Global/Profile';
 import AboutUs from './components/Global/AboutUs';
-import ModalCard from './components/Partials/ModalCard';
 import MainNav from './components/Partials/MainNav';
+import Voucher from './components/Global/Voucher';
 
 class App extends React.Component {
   constructor(props) {
@@ -126,12 +126,16 @@ class App extends React.Component {
             this.state.loggedInUser ? <Events user={this.state.loggedInUser} addItem={() => this.addItem()} /> :
               <Redirect to={'/login'} />} />
 
-          <Route exact path='/events/:genre/:artworkId' render={() =>
+          {/* <Route exact path='/events/:genre/:artworkId' render={() =>
             this.state.loggedInUser ? <ModalCard /> :
-              <Redirect to={'/login'} />} />
+              <Redirect to={'/login'} />} /> */}
 
           <Route exact path='/profile' render={() =>
             this.state.loggedInUser ? <Profile {...this.state.loggedInUser} getUser={this.getUser} toggleHeader={() => this.toggleHeader()} removeItem={() => this.removeItem()} /> :
+              <Redirect to={'/login'} />} />
+
+          <Route exact path='/voucher' render={() =>
+            this.state.loggedInUser ? <Voucher getUser={this.getUser} /> :
               <Redirect to={'/login'} />} />
 
         </Switch>

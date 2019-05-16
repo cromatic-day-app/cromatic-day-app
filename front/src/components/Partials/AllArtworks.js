@@ -93,7 +93,7 @@ class AllArtworks extends React.Component {
                     <button onClick={() => this.joinArtworks(artwork._id)}>Add to cart</button>
                   </div>
                 </div>
-                <ModalCard artwork={artwork} idx={idx} date={moment(artwork.date).format("DD/MM/YYYY")}/>
+                <ModalCard artwork={artwork} idx={idx} date={moment(artwork.date).format("dddd MMM Do YYYY")}/>
               </div>
             );
           })

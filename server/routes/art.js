@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Artwork = require("../models/Artwork");
-const User = require("../models/User")
+const User = require("../models/User");
+const Voucher = require("../models/Voucher");
 
 router.get('/allGenres', (req, res, next) => {
   Artwork
@@ -45,6 +46,25 @@ router.post('/joinArtworks', (req, res, next) => {
     })
     .catch(err => res.status(500).json(err))
 })
+
+router.post('/new', (req, res, next) => {
+  Voucher
+    .create({
+      title: req.body.title,
+      receiver: req.body.receiver,
+      creator: req.body.creator,
+      description: req.body.description,
+      imageUrl: req.body.imageUrl,
+    })
+    .then((newVoucher) => {
+      Voucher
+        .findById(newVoucher._id)
+        .then(theNewVoucher => res.json(theNewVoucher))
+    })
+    .catch((err) => {
+      console.log("created voucher failed", err);
+    })
+});
 
 router.delete('/delete/:artworkId', (req, res, next) => {
   let id = req.user._id;

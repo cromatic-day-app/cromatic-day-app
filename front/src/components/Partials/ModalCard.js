@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ModalCard.css";
-import moment from "moment";
 
 class ModalCard extends React.Component {
 

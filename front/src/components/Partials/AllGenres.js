@@ -5,9 +5,6 @@ import AllArtworks from './AllArtworks';
 import "./AllGenres.css";
 import "bulma/css/bulma.css";
 
-
-
-
 class AllGenres extends React.Component {
   constructor(props) {
     super(props);
