@@ -65,7 +65,6 @@ router.post('/new', (req, res, next) => {
         .populate("vouchers")
         .then(user => {
           res.json(user)
-          console.log("Voucher populated:", user)
         })
         .catch(err => res.status(500).json(err))
     })
