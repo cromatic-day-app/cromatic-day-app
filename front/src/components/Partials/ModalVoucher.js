@@ -4,9 +4,7 @@ import "./ModalVoucher.css";
 class ModalVoucher extends React.Component {
 
   showModal = (modalId) => {
-    console.log(modalId);
     const modal = document.getElementById(modalId);
-    console.log(modal)
     modal.className = "modal is-active";
   }
 
@@ -17,7 +15,6 @@ class ModalVoucher extends React.Component {
 
   render() {
     let voucher = this.props.voucher;
-    console.log(voucher)
     return (
       <div id={this.props.modalId} className="modal">
         <div className="modal-background"></div>

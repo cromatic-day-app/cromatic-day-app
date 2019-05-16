@@ -3,7 +3,7 @@ body {
 }
 
 .bigtitle1 {
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 20px;
     margin-top: 50px;
 }
@@ -26,7 +26,7 @@ body {
 
 .boxform1 {
     width: 900px;
-    height: 650px;
+    height: 500px;
     box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
     background-color: white;
     border-radius: 6px;

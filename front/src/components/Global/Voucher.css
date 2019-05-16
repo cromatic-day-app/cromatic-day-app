@@ -1,0 +1,66 @@
+.boxform2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    margin-top: 70px;
+}
+
+.formbox2 {
+    width: 50%;
+    margin-top: 20px;
+    flex-direction: column;
+    padding: 0px 200px;
+}
+
+.btn3 {
+    background-color: white;
+    color: #ca8fff;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Montserrat";
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 5px 25px;
+    margin-bottom: 20px;
+}
+
+.btn4 {
+    background-color: #ca8fff;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 25px;
+    margin-bottom: 20px;
+}
+
+.boximgvoucher {
+    flex-direction: row;
+    width: 50%;
+}
+
+.voucherimg {
+    flex-direction: row;
+    width: 950px;
+    height: 950px;
+}
+
+.label {
+    text-align: left;
+    color: #4A4A4A;
+}
+
+.titlegift {
+    font-size: 45px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.spaceinput {
+    margin-right: 15px;
+}
