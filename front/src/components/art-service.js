@@ -39,9 +39,9 @@ class ArtService {
             .catch(err => console.log(err));
     };
 
-    newVoucher(title, receiver, creator, description, imageUrl) {
+    newVoucher(title, receiver, creator, message, userPhoto) {
         return this.service
-            .post('/new', { title, receiver, creator, description, imageUrl })
+            .post('/new', { title, receiver, creator, message, userPhoto })
             .catch(error => console.log(error))
     }
 

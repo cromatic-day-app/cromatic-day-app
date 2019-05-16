@@ -5,8 +5,8 @@ const voucherSchema = new Schema({
     title: String,
     receiver: String,
     creator: String,
-    description: String,
-    imageUrl: String,
+    message: String,
+    userPhoto: String,
 });
 
 const Voucher = mongoose.model("Voucher", voucherSchema);

@@ -64,14 +64,12 @@ class Signup extends React.Component {
   };
 
   handleFileUpload = e => {
-    // console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadData = new FormData();
 
     uploadData.append("userPhoto", e.target.files[0]);
     this.service
       .handleUpload(uploadData)
       .then(response => {
-        // console.log('response is: ', response);
         this.setState({ userPhoto: response.secure_url });
       })
       .catch(err => {

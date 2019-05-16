@@ -48,22 +48,21 @@ router.post('/joinArtworks', (req, res, next) => {
 })
 
 router.post('/new', (req, res, next) => {
+
   Voucher
     .create({
       title: req.body.title,
       receiver: req.body.receiver,
       creator: req.body.creator,
-      description: req.body.description,
-      imageUrl: req.body.imageUrl,
+      message: req.body.message,
+      userPhoto: req.body.userPhoto,
     })
     .then((newVoucher) => {
       Voucher
         .findById(newVoucher._id)
         .then(theNewVoucher => res.json(theNewVoucher))
     })
-    .catch((err) => {
-      console.log("created voucher failed", err);
-    })
+    .catch(err => res.json(err))
 });
 
 router.delete('/delete/:artworkId', (req, res, next) => {
