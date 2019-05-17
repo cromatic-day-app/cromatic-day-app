@@ -22,7 +22,7 @@ function randomDate(start, end) {
     );
 }
 
-let genresArray = ["Paul-Gauguin", "Van-Gogh", "Édouard-Manet", "Gustav-Klimt", "Edgar-Degas", "Jan-Van-Eyik"];
+let genresArray = ["paul-gauguin", "van-gogh", "gustav-klimt", "edgar-degas", "jan-van-eyik"];
 
 genresArray.forEach(genre => {
     console.log(genre);
