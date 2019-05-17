@@ -2,9 +2,6 @@ import React from "react";
 import "./Contact.css";
 
 class Contact extends React.Component {
-  constructor() {
-    super();
-  }
 
   render() {
     return (
@@ -41,7 +38,7 @@ class Contact extends React.Component {
 
         <div className="map">
           {/* <h1>map</h1> */}
-          <img src= "/img/maptest.png"></img>
+          <img src= "/img/maptest.png" alt="img" />
         </div>
       </React.Fragment>
     );

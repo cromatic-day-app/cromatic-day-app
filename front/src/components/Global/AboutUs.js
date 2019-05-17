@@ -47,7 +47,7 @@ class AboutUs extends React.Component {
 
         <div className="bigbox">
           <div className="AboutTitle">
-            <img src="/img/abouttitle.png" />
+            <img src="/img/abouttitle.png" alt="img"/>
           </div>
           <div className="text">
             <p>We are a group painting event organization company.We are based on a new concept of leisure for adult audiences. We detected that there is a lack of fun activities related to art and that is where our concept comes from.
@@ -57,7 +57,7 @@ You can reserve a work that you like from different genres, buy it and be able t
         </div>
 
         <div className="backphotos">
-          <img src="/img/paint2.png" alt="img2" />
+          <img src="/img/paint2.png" alt="img" />
         </div>
 
         <div className="generaldiv">

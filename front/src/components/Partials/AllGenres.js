@@ -68,7 +68,7 @@ class AllGenres extends React.Component {
           {this.onlyOneGenre(this.state.allGenres).map((picture, idx) => {
             return (
               // <div  style={{backgroundColor:'red'}}>
-                <a  key={idx} to={`/events/${picture.genre}`}>
+                <Link  key={idx} to={`/events/${picture.genre}`}>
                   {" "}
                   <img
                     className=""
@@ -76,7 +76,7 @@ class AllGenres extends React.Component {
                     alt="button"
                     onClick={() => this.showGenreArtworks(picture.genre)}
                   />
-                </a>
+                </Link>
               // </div>
             );
           })}

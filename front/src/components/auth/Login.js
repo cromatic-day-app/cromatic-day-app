@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthService from './auth-service';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 

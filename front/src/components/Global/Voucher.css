@@ -64,3 +64,9 @@
 .spaceinput {
     margin-right: 15px;
 }
+
+.messageOk {
+    color: #ca8fff;
+    font-weight: bold;
+    margin-top: 15px;
+}

@@ -28,6 +28,7 @@ class Profile extends React.Component {
           booked: deletedArtwork
         })
       })
+      .catch(error => console.log(error))
   }
 
   componentDidMount() {

@@ -69,7 +69,9 @@ class Voucher extends React.Component {
     this.service
       .handleUpload(uploadData)
       .then(response => {
-        this.setState({ userPhoto: response.secure_url });
+        this.setState({
+          userPhoto: response.secure_url
+        });
       })
       .catch(err => {
         console.log("Error while uploading the file: ", err);
@@ -79,84 +81,89 @@ class Voucher extends React.Component {
   render() {
     return (
       <React.Fragment>
-        
+
         <div className="boxform2">
-        <div className="formbox2">
-          <form className="inputsizes2" onSubmit={this.handleFormSubmit}>
-          <h1 className="titlegift">Create your gift card!</h1>
-            <div className="field">
-              <label className="label">Title</label>
-              <div className="control">
-                <input
-                  className="input"
-                  name="title"
-                  type="text"
-                  value={this.state.title}
-                  placeholder="Put your title"
-                  min="0"
-                  onChange={e => this.handleChange(e)}
-                />
+          <div className="formbox2">
+            <form className="inputsizes2" onSubmit={this.handleFormSubmit}>
+              <h1 className="titlegift">Create your gift card!</h1>
+              <div className="field">
+                <label className="label">Title</label>
+                <div className="control">
+                  <input
+                    className="input"
+                    name="title"
+                    type="text"
+                    value={this.state.title}
+                    placeholder="Put your title"
+                    min="0"
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="field">
-              <label className="label">To:</label>
-              <div className="control has-icons-left has-icons-right">
-                <input
-                  className="input"
-                  name="receiver"
-                  type="text"
-                  value={this.state.receiver}
-                  placeholder="To"
-                  min="0"
-                  onChange={e => this.handleChange(e)}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-user" />
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check" />
-                </span>
+              <div className="field">
+                <label className="label">To:</label>
+                <div className="control has-icons-left has-icons-right">
+                  <input
+                    className="input"
+                    name="receiver"
+                    type="text"
+                    value={this.state.receiver}
+                    placeholder="To"
+                    min="0"
+                    onChange={e => this.handleChange(e)}
+                  />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-user" />
+                  </span>
+                  <span className="icon is-small is-right">
+                    <i className="fas fa-check" />
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="field">
-              <label className="label">From:</label>
-              <div className="control has-icons-left has-icons-right">
-                <input
-                  className="input"
-                  name="creator"
-                  type="text"
-                  placeholder="From"
-                  value={this.state.creator}
-                  onChange={e => this.handleChange(e)}
-                />
-                <span className="icon is-small is-left" />
-                <span className="icon is-small is-right" />
+              <div className="field">
+                <label className="label">From:</label>
+                <div className="control has-icons-left has-icons-right">
+                  <input
+                    className="input"
+                    name="creator"
+                    type="text"
+                    placeholder="From"
+                    value={this.state.creator}
+                    onChange={e => this.handleChange(e)}
+                  />
+                  <span className="icon is-small is-left" />
+                  <span className="icon is-small is-right" />
+                </div>
               </div>
-            </div>
-            <div class="field">
-              <label class="label">Message</label>
-              <div class="control">
-                <textarea
-                  class="textarea"
-                  placeholder="Textarea"
-                  name="message"
-                  type="text"
-                  value={this.state.message}
-                  onChange={e => this.handleChange(e)}
-                />
+              <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                  <textarea
+                    class="textarea"
+                    placeholder="Textarea"
+                    name="message"
+                    type="text"
+                    value={this.state.message}
+                    onChange={e => this.handleChange(e)}
+                  />
+                </div>
               </div>
-            </div>
-            <input className="spaceinput" type="file" onChange={e => this.handleFileUpload(e)} />
-            <button className="btn3" type="submit">
-              Create
+              <input className="spaceinput" type="file" onChange={e => this.handleFileUpload(e)} />
+              <div className="messageOk">
+                {
+                  this.state.created ? <p>Gift created!</p> : null
+                }
+              </div>
+              <button className="btn3" type="submit">
+                Create
             </button>
-            <button
-              className="btn4"
-              onClick={() => this.showModal(this.state.modalId)}
-            >
-              See your Voucher
+              <button
+                className="btn4"
+                onClick={() => this.showModal(this.state.modalId)}
+              >
+                See your Voucher
             </button>{" "}
-          </form>
+            </form>
           </div>
           <ModalVoucher
             voucher={this.state.vouchers}
