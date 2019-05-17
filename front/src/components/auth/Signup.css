@@ -3,9 +3,11 @@ body {
 }
 
 .bigtitle {
-    font-size: 20px;
+    font-size: 23px;
     margin-bottom: 20px;
     margin-top: 50px;
+    text-align: left;
+    width: 500px;
 }
 
 .signtitle {
