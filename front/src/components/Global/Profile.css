@@ -47,7 +47,7 @@ body {
 .profile-box {
   display: flex;
   align-items: center;
-  height: 550px;
+  height: 700px;
   width: 1174px;
   background-color: white;
   flex-direction: column;
@@ -73,8 +73,8 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #f6fafd;
-  height: 350px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
   justify-content: flex-start;
   border-radius: 6px;
   box-shadow: 4px 4px 13px -9px rgba(51, 49, 51, 1);
@@ -85,7 +85,7 @@ body {
 }
 
 .line{
-  width: 300px;
+  width: 400px;
   border-bottom: 1px solid silver;
 }
 
@@ -99,6 +99,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 400px;
 }
 
 .each-artwork h2 {
