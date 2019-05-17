@@ -136,7 +136,7 @@ class App extends React.Component {
               <Redirect to={'/login'} />} />
 
           <Route exact path='/voucher' render={() =>
-            this.state.loggedInUser ? <Voucher {...this.state.loggedInUser} getUser={this.getUser} /> :
+            this.state.loggedInUser ? <Voucher {...this.state.loggedInUser} getUser={this.getUser} addItem={() => this.addItem()} /> :
               <Redirect to={'/login'} />} />
 
           <Route exact path='/contact' render={() =>
