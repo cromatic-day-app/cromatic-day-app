@@ -35,7 +35,7 @@ class Voucher extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    
+
     this.props.addItem();
     const { title, receiver, creator, message, userPhoto } = this.state;
 
@@ -154,15 +154,16 @@ class Voucher extends React.Component {
                   this.state.created ? <p>Gift created!</p> : null
                 }
               </div>
-              <button className="btn3" type="submit">
-                Create
-            </button>
-              <button
-                className="btn4"
-                onClick={() => this.showModal(this.state.modalId)}
-              >
-                See your Voucher
-            </button>{" "}
+              <div className="botones">
+                <button className="btn3" type="submit">
+                  Create
+                </button>
+                <button
+                  className="btn4"
+                  onClick={() => this.showModal(this.state.modalId)}>
+                  See your Voucher
+                </button>
+              </div>
             </form>
           </div>
           <ModalVoucher

@@ -11,6 +11,9 @@
     margin-top: 20px;
     flex-direction: column;
     padding: 0px 200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .btn3 {
@@ -69,4 +72,13 @@
     color: #ca8fff;
     font-weight: bold;
     margin-top: 15px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 500px;
 }
