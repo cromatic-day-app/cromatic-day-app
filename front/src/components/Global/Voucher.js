@@ -36,6 +36,7 @@ class Voucher extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
+    this.props.addItem();
     const { title, receiver, creator, message, userPhoto } = this.state;
 
     this.ArtService.newVoucher(title, receiver, creator, message, userPhoto)
@@ -81,7 +82,6 @@ class Voucher extends React.Component {
   render() {
     return (
       <React.Fragment>
-
         <div className="boxform2">
           <div className="formbox2">
             <form className="inputsizes2" onSubmit={this.handleFormSubmit}>
@@ -135,11 +135,11 @@ class Voucher extends React.Component {
                   <span className="icon is-small is-right" />
                 </div>
               </div>
-              <div class="field">
-                <label class="label">Message</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Message</label>
+                <div className="control">
                   <textarea
-                    class="textarea"
+                    className="textarea"
                     placeholder="Textarea"
                     name="message"
                     type="text"
@@ -154,15 +154,16 @@ class Voucher extends React.Component {
                   this.state.created ? <p>Gift created!</p> : null
                 }
               </div>
-              <button className="btn3" type="submit">
-                Create
-            </button>
-              <button
-                className="btn4"
-                onClick={() => this.showModal(this.state.modalId)}
-              >
-                See your Voucher
-            </button>{" "}
+              <div className="botones">
+                <button className="btn3" type="submit">
+                  Create
+                </button>
+                <button
+                  className="btn4"
+                  onClick={() => this.showModal(this.state.modalId)}>
+                  See your Voucher
+                </button>
+              </div>
             </form>
           </div>
           <ModalVoucher

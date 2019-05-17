@@ -71,17 +71,17 @@ router.post('/new', (req, res, next) => {
     .catch(err => res.json(err))
 });
 
-router.delete('/delete/:artworkId', (req, res, next) => {
+router.delete('/delete/:sthId', (req, res, next) => {
   let id = req.user._id;
-  let artworkId = req.params.artworkId;
+  let sthId = req.params.sthId;
 
   User
-    .findByIdAndUpdate(id, { $pull: { 'booked': artworkId } }, { new: true })
+    .findByIdAndUpdate(id, { $pull: { 'booked': sthId, 'vouchers': sthId } }, { new: true })
     .then((user) => {
       res.json(user)
     })
     .catch((err) => {
-      console.log("deleted failed");
+      console.log("deleted booked artwork failed ", err);
     })
 });
 

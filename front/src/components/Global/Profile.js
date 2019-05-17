@@ -16,16 +16,18 @@ class Profile extends React.Component {
     this.service = new AuthService();
   }
 
-  deleteArtworks = (artworkId) => {
+  delete = (sthId) => {
     this.props.removeItem();
-    this.ArtService.deleteArtwork(artworkId)
-      .then(deletedArtwork => {
-        deletedArtwork = deletedArtwork.filter((artwork) => {
-          return (artwork !== artworkId)
+    this.ArtService.delete(sthId)
+      .then(deleted => {
+        console.log(deleted)
+        deleted = deleted.filter((sth) => {
+          return (sth !== sthId)
         })
         this.setState({
           ...this.state,
-          booked: deletedArtwork
+          booked: deleted,
+          vouchers: deleted
         })
       })
       .catch(error => console.log(error))
@@ -40,6 +42,7 @@ class Profile extends React.Component {
           vouchers: user.vouchers
         })
       })
+      .catch(error => console.log(error))
     this.props.toggleHeader();
   }
 
@@ -52,6 +55,7 @@ class Profile extends React.Component {
           vouchers: user.vouchers
         })
       })
+      .catch(error => console.log(error))
   }
 
   componentWillUnmount() {
@@ -85,7 +89,7 @@ class Profile extends React.Component {
                             <p>{artwork.artistDisplayName}</p>
                           </div>
                           <div>
-                            <button onClick={() => this.deleteArtworks(artwork._id)}>Delete</button>
+                            <button onClick={() => this.delete(artwork._id)}>Delete</button>
                           </div>
                         </div>
                         <div className="line"></div>
@@ -103,7 +107,7 @@ class Profile extends React.Component {
                             <p>{voucher.creator}</p>
                           </div>
                           <div>
-                            <button>Delete</button>
+                            <button onClick={() => this.delete(voucher._id)}>Delete</button>
                           </div>
                         </div>
                         <div className="line"></div>
