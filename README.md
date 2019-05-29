@@ -6,10 +6,29 @@ Having a profile is one of the most common features you will need to add on your
 
 We will create a backend REST API using NodeJS and a frontend using React where users will be able to **signup, login, upload a profile picture, check their profiles and edit it.**
 
-## Requirements
+## Build Setup
 
-- Fork this repo
-- Clone this repo
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+
 
 ## Submission
 
